@@ -8,7 +8,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="w-screen min-h-screen flex flex-col items-center bg-white dark:bg-black">
+    <div className="w-full min-h-screen flex flex-col items-center bg-white dark:bg-black">
       <Header />
       {children}
       <Footer />

@@ -4,7 +4,7 @@ import ThemeChanger from "./themeChanger";
 
 export default function Header() {
   return (
-    <div className="sticky z-50 inset-0 w-screen mt-8 p-2 flex justify-center bg-white dark:bg-black">
+    <div className="sticky z-50 inset-0 w-full mt-8 p-2 flex justify-center bg-white dark:bg-black">
       <Container className="flex items-center">
         <Tab path="/">Home</Tab>
         <Tab path="/projects">Projects</Tab>
