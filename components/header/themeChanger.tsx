@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 export default function ThemeChanger() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "light" ? "dark" : "light");
-  }, [theme, setTheme]);
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
+  }, [resolvedTheme, setTheme]);
 
   useEffect(() => {
     setMounted(true);
@@ -22,13 +22,13 @@ export default function ThemeChanger() {
   return (
     <button
       className={
-        theme === "light"
+        resolvedTheme === "light"
           ? "p-3 rounded-xl bg-gray-200 hover:bg-gray-300"
           : "p-3 rounded-xl bg-gray-600 hover:bg-gray-700"
       }
       onClick={toggleTheme}
     >
-      {theme === "light" && (
+      {resolvedTheme === "light" && (
         <motion.div
           initial={{ scale: 0.0 }}
           animate={{ scale: 1.0 }}
@@ -37,7 +37,7 @@ export default function ThemeChanger() {
           <HiOutlineMoon className="h-5 w-5" />
         </motion.div>
       )}
-      {theme === "dark" && (
+      {resolvedTheme === "dark" && (
         <motion.div
           initial={{ scale: 0.0 }}
           animate={{ scale: 1.0 }}
