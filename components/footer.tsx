@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <Container>
+    <Container className="mb-16">
       <div className="w-full my-4 border-t border-dashed border-gray-400" />
       <p className="text-gray-400">© mtaku3 {new Date().getFullYear()}</p>
       <p className="text-gray-400 mt-2">
