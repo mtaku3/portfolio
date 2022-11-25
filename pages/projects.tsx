@@ -1,3 +1,10 @@
+import { NextSeo } from "next-seo";
+
 export default function Projects() {
-  return <div>Projects</div>;
+  return (
+    <>
+      <NextSeo title="mtaku3 - Projects" />
+      <div>Projects</div>
+    </>
+  );
 }
