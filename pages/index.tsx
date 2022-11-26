@@ -2,17 +2,30 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Container from "../components/container";
 import ProjectCard from "../components/projectCard";
+import MicroCMSClient, { Project } from "../microcms";
+import { MicroCMSListContent } from "microcms-js-sdk";
 
-interface IProjectCard {
-  title: string;
-  description: React.ReactNode;
-  link: string;
-  image: string;
+type HomeProps = {
+  projects: (Project & MicroCMSListContent)[];
+};
+
+export async function getStaticProps() {
+  const res = await MicroCMSClient.getList<Project>({
+    endpoint: "projects",
+    queries: {
+      orders: "-createdAt",
+      limit: 10,
+    },
+  });
+
+  return {
+    props: {
+      projects: res.contents,
+    },
+  };
 }
 
-export default function Home() {
-  const projects: IProjectCard[] = [];
-
+export default function Home({ projects }: HomeProps) {
   return (
     <>
       <div className="w-full flex flex-col items-center mt-8 min-h-fit">
@@ -44,12 +57,11 @@ export default function Home() {
             <ProjectCard
               key={project.title}
               className="shrink-0 h-48 w-48"
+              id={project.id}
               title={project.title}
-              link={project.link}
-              image={project.image}
-            >
-              {project.description}
-            </ProjectCard>
+              description={project.description}
+              image={project.image.url}
+            />
           ))}
         </div>
       </div>

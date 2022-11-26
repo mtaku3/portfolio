@@ -5,18 +5,18 @@ import { AiOutlineLink } from "react-icons/ai";
 
 type ProjectCardProps = {
   className?: string;
-  children: React.ReactNode;
+  description: string;
 
+  id: string;
   title: string;
-  link: string;
   image: string;
 };
 
 export default function ProjectCard({
   className,
-  children,
+  description,
+  id,
   title,
-  link,
   image,
 }: ProjectCardProps) {
   return (
@@ -24,7 +24,7 @@ export default function ProjectCard({
       className={`relative group odd:rotate-2 even:-rotate-2 ${
         className !== undefined ? className : ""
       }`}
-      href={link}
+      href={`/projects/${id}`}
     >
       <Image
         className="h-full w-full rounded-xl -z-10 transition-opacity opacity-30 md:opacity-100 md:group-hover:opacity-30"
@@ -40,8 +40,8 @@ export default function ProjectCard({
           </p>
           <AiOutlineLink className="text-black dark:text-white" />
         </div>
-        <p className="text-xs text-left whitespace-normal text-black dark:text-white select-none">
-          {children}
+        <p className="text-xs text-left whitespace-pre-wrap text-black dark:text-white select-none">
+          {description}
         </p>
       </div>
     </Link>
