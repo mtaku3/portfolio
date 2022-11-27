@@ -13,7 +13,6 @@ export async function getStaticProps() {
   const res = await MicroCMSClient.getList<Project>({
     endpoint: "projects",
     queries: {
-      orders: "-createdAt",
       limit: 10,
     },
   });
