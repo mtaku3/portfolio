@@ -4,12 +4,13 @@ import Container from "../components/container";
 import ProjectCard from "../components/projectCard";
 import MicroCMSClient, { Project } from "../microcms";
 import { MicroCMSListContent } from "microcms-js-sdk";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 type HomeProps = {
   projects: (Project & MicroCMSListContent)[];
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const res = await MicroCMSClient.getList<Project>({
     endpoint: "projects",
     queries: {
@@ -22,9 +23,11 @@ export async function getStaticProps() {
       projects: res.contents,
     },
   };
-}
+};
 
-export default function Home({ projects }: HomeProps) {
+export default function Home({
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <div className="w-full flex flex-col items-center mt-8 min-h-fit">
