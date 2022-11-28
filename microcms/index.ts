@@ -1,5 +1,5 @@
 import client from "./client";
-import { Project } from "./projects";
+import { Project } from "./project";
 
 export default client;
 export type { Project };
