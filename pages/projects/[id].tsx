@@ -1,6 +1,10 @@
 import { MicroCMSListContent } from "microcms-js-sdk";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Container from "../../components/container";
 import MicroCMSClient, { Project } from "../../microcms";
+import { BiHistory } from "react-icons/bi";
+import HTMLParser from "../../components/HTMLParser";
+import { useEffect, useState } from "react";
 
 type ProjectPageProps = {
   project: Project & MicroCMSListContent;
@@ -9,7 +13,27 @@ type ProjectPageProps = {
 export default function ProjectPage({
   project,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div>{project.title}</div>;
+  const [updatedAt, setUpdatedAt] = useState<string>("");
+
+  useEffect(() => {
+    setUpdatedAt(new Date(project.updatedAt).toLocaleString());
+  }, [project.updatedAt]);
+
+  return (
+    <Container className="space-y-4">
+      <p className="text-5xl font-extrabold">{project.title}</p>
+      <div className="ml-4 flex gap-4">
+        <p className="flex-grow">{project.description}</p>
+        <div className="flex items-center gap-2">
+          <BiHistory className="h-5 w-5" />
+          <p>{updatedAt}</p>
+        </div>
+      </div>
+      <div>
+        <HTMLParser src={project.content} />
+      </div>
+    </Container>
+  );
 }
 
 export async function getStaticPaths() {
