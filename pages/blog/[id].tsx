@@ -5,6 +5,7 @@ import MicroCMSClient, { Post } from "../../microcms";
 import { BiHistory } from "react-icons/bi";
 import HTMLParser from "../../components/HTMLParser";
 import { useEffect, useState } from "react";
+import { AiOutlineTags } from "react-icons/ai";
 
 type PostPageProps = {
   post: Post & MicroCMSListContent;
@@ -25,6 +26,15 @@ export default function PostPage({
       <div className="ml-4 flex gap-4">
         <p className="flex-grow">{post.description}</p>
         <div className="flex items-center gap-2">
+          {post.categories.map((category) => (
+            <div
+              key={category.id}
+              className="flex gap-1 items-center justify-center"
+            >
+              <AiOutlineTags className="h-4 w-4" />
+              <p className="text-sm">{category.name}</p>
+            </div>
+          ))}
           <BiHistory className="h-5 w-5" />
           <p>{updatedAt}</p>
         </div>

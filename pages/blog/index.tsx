@@ -7,6 +7,7 @@ import MicroCMSClient from "../../microcms";
 import { HiOutlineFlag } from "react-icons/hi2";
 import Link from "next/link";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { AiOutlineTags } from "react-icons/ai";
 
 type BlogProps = {
   posts: (Post & MicroCMSListContent)[];
@@ -61,6 +62,19 @@ export default function blog({
                 </p>
               </div>
               <p className="text-sm whitespace-pre-wrap">{post.description}</p>
+              {post.categories.length > 0 && (
+                <div className="mt-2 ml-auto flex flex-row gap-2">
+                  {post.categories.map((category) => (
+                    <div
+                      key={category.id}
+                      className="flex gap-1 items-center justify-center"
+                    >
+                      <AiOutlineTags className="h-4 w-4" />
+                      <p className="text-sm">{category.name}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </Link>
           ))}
         </div>
