@@ -5,5 +5,5 @@ export type Post = {
   title: string;
   description: string;
   content: string;
-  categories: (Category | MicroCMSListContent)[];
+  categories: (Category & MicroCMSListContent)[];
 };
