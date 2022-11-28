@@ -5,6 +5,8 @@ import MicroCMSClient, { Project } from "../../microcms";
 import { BiHistory } from "react-icons/bi";
 import HTMLParser from "../../components/HTMLParser";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { BiLinkExternal } from "react-icons/bi";
 
 type ProjectPageProps = {
   project: Project & MicroCMSListContent;
@@ -25,6 +27,12 @@ export default function ProjectPage({
       <div className="ml-4 flex gap-4">
         <p className="flex-grow">{project.description}</p>
         <div className="flex items-center gap-2">
+          {project.url && (
+            <Link className="flex items-center gap-2" href={project.url}>
+              <BiLinkExternal className="h-5 w-5" />
+              <p>詳細を見る</p>
+            </Link>
+          )}
           <BiHistory className="h-5 w-5" />
           <p>{updatedAt}</p>
         </div>
