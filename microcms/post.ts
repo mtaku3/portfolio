@@ -1,9 +1,13 @@
 import { MicroCMSListContent } from "microcms-js-sdk";
-import { Category } from "./category";
+import { z } from "zod";
+import { Category, CategorySchema } from "./category";
+import { MicroCMSListContentSchema } from "./type";
 
-export type Post = {
-  title: string;
-  description: string;
-  content: string;
-  categories: (Category & MicroCMSListContent)[];
-};
+export const PostSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  content: z.string(),
+  categories: z.array(MicroCMSListContentSchema.merge(CategorySchema)),
+});
+
+export type Post = z.infer<typeof PostSchema>;

@@ -63,7 +63,7 @@ export async function getStaticPaths() {
         },
       };
     }),
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
@@ -81,6 +81,12 @@ export const getStaticProps: GetStaticProps<
       ids: params.id,
     },
   });
+
+  if (res.totalCount === 0) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
