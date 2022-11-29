@@ -2,20 +2,22 @@ import { MicroCMSListContent } from "microcms-js-sdk";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Container from "../../components/container";
-import { Post } from "../../microcms";
+import { Category, Post } from "../../microcms";
 import MicroCMSClient from "../../microcms";
 import { HiOutlineFlag } from "react-icons/hi2";
 import Link from "next/link";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { AiOutlineTags } from "react-icons/ai";
 import { useCallback, useEffect, useState } from "react";
+import { MdClear, MdClearAll } from "react-icons/md";
 
 type BlogProps = {
   posts: (Post & MicroCMSListContent)[];
+  categories: (Category & MicroCMSListContent)[];
 };
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => {
-  const res = await MicroCMSClient.getList<Post>({
+  const { contents: posts } = await MicroCMSClient.getList<Post>({
     endpoint: "posts",
     queries: {
       orders: "-createdAt",
@@ -23,33 +25,61 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
     },
   });
 
+  const { contents: categories } = await MicroCMSClient.getList<Category>({
+    endpoint: "categories",
+    queries: {
+      limit: 10000,
+    },
+  });
+
   return {
     props: {
-      posts: res.contents,
+      posts,
+      categories,
     },
   };
 };
 
 export default function Blog({
   posts,
+  categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [isSortDropdownOpened, setIsSortDropdownOpened] =
-    useState<boolean>(false);
-  const [sortOption, setSortOption] = useState<string>("-createdAt");
   const [sortedPosts, setSortedPosts] =
     useState<(Post & MicroCMSListContent)[]>(posts);
 
+  const [isSortDropdownOpened, setIsSortDropdownOpened] =
+    useState<boolean>(false);
+  const [sortOption, setSortOption] = useState<string>("-createdAt");
+
+  const [isFilterDropdownOpened, setIsFilterDropdownOpened] =
+    useState<boolean>(false);
+  const [filterOption, setfilterOption] = useState<{
+    category?: string;
+  }>({});
+
   useEffect(() => {
-    if (sortOption === "-createdAt") {
+    if (filterOption.category) {
       setSortedPosts(
-        [...sortedPosts].sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+        [...posts].filter((post) =>
+          post.categories.some(
+            (category) => category.id === filterOption.category
+          )
+        )
+      );
+    } else {
+      setSortedPosts(posts);
+    }
+
+    if (sortOption === "-createdAt") {
+      setSortedPosts((prev) =>
+        [...prev].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
       );
     } else if (sortOption === "createdAt") {
-      setSortedPosts(
-        [...sortedPosts].sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1))
+      setSortedPosts((prev) =>
+        [...prev].sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1))
       );
     }
-  }, [sortOption, sortedPosts]);
+  }, [sortOption, filterOption, posts]);
 
   const setSortOptionAndClose = (option: string) => {
     setSortOption(option);
@@ -59,6 +89,24 @@ export default function Blog({
   const toggleSortDropdown = useCallback(() => {
     setIsSortDropdownOpened(!isSortDropdownOpened);
   }, [isSortDropdownOpened]);
+
+  const filterOptionToString = () => {
+    if (filterOption.category) {
+      const category = categories.find(
+        (category) => category.id === filterOption.category
+      );
+      return category?.name;
+    }
+  };
+
+  const setfilterOptionAndClose = (option: {}) => {
+    setfilterOption(option);
+    setIsFilterDropdownOpened(false);
+  };
+
+  const toggleFilterDropdown = useCallback(() => {
+    setIsFilterDropdownOpened(!isFilterDropdownOpened);
+  }, [isFilterDropdownOpened]);
 
   return (
     <>
@@ -76,34 +124,73 @@ export default function Blog({
             <p className="text-2xl font-extrabold">Blog</p>
           </div>
         </div>
-        <div className="ml-auto relative inline-block text-left">
-          <button
-            className="inline-flex justify-center rounded-md border border-gray-300 bg-white dark:bg-gray-700 dark:border-black px-4 py-2 text-xs font-medium shadow-sm hover:bg-gray-50"
-            onClick={toggleSortDropdown}
-          >
-            並べ替え：
-            {sortOption === "-createdAt"
-              ? "投稿日（新しい順）"
-              : "投稿日（古い順）"}
-          </button>
-          {isSortDropdownOpened && (
-            <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-gray-700 shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="py-1">
+        <div className="ml-auto flex space-x-2">
+          <div className="relative">
+            <button
+              className="inline-flex justify-center rounded-md border border-gray-300 bg-white dark:bg-gray-700 dark:border-black px-4 py-2 text-xs font-medium shadow-sm hover:bg-gray-50"
+              onClick={toggleFilterDropdown}
+            >
+              カテゴリー
+              {Object.keys(filterOption).length > 0 &&
+                `：${filterOptionToString()}`}
+            </button>
+            {isFilterDropdownOpened && (
+              <div className="absolute right-0 z-10 mt-2 py-1 min-w-full max-h-32 overflow-y-auto origin-top-right rounded-md bg-white dark:bg-gray-700 shadow-lg ring-1 ring-black ring-opacity-5">
+                {Object.keys(filterOption).length > 0 && (
+                  <button
+                    className="w-full flex items-center text-gray-700 dark:text-white px-4 py-2 text-sm whitespace-nowrap"
+                    onClick={() => setfilterOptionAndClose({})}
+                  >
+                    <div className="mx-auto flex items-center gap-2">
+                      <MdClearAll className="h-4 w-4" />
+                      <div>クリア</div>
+                    </div>
+                  </button>
+                )}
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    className="w-full flex items-center text-gray-700 dark:text-white px-4 py-2 text-sm whitespace-nowrap"
+                    onClick={() =>
+                      setfilterOptionAndClose({ category: category.id })
+                    }
+                  >
+                    <div className="mx-auto flex items-center gap-2">
+                      <AiOutlineTags className="h-4 w-4" />
+                      <p className="text-sm">{category.name}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="relative">
+            <button
+              className="inline-flex justify-center rounded-md border border-gray-300 bg-white dark:bg-gray-700 dark:border-black px-4 py-2 text-xs font-medium shadow-sm hover:bg-gray-50"
+              onClick={toggleSortDropdown}
+            >
+              並べ替え：
+              {sortOption === "-createdAt"
+                ? "投稿日（新しい順）"
+                : "投稿日（古い順）"}
+            </button>
+            {isSortDropdownOpened && (
+              <div className="absolute right-0 z-10 mt-2 py-1 w-full origin-top-right rounded-md bg-white dark:bg-gray-700 shadow-lg ring-1 ring-black ring-opacity-5">
                 <button
-                  className="text-gray-700 dark:text-white block px-4 py-2 text-sm"
+                  className="w-full text-gray-700 dark:text-white block px-4 py-2 text-sm whitespace-nowrap"
                   onClick={() => setSortOptionAndClose("-createdAt")}
                 >
                   投稿日（新しい順）
                 </button>
                 <button
-                  className="text-gray-700 dark:text-white block px-4 py-2 text-sm"
+                  className="w-full text-gray-700 dark:text-white block px-4 py-2 text-sm whitespace-nowrap"
                   onClick={() => setSortOptionAndClose("createdAt")}
                 >
                   投稿日（古い順）
                 </button>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {sortedPosts.map((post) => (
