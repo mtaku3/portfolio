@@ -35,9 +35,9 @@ export default function ProjectCard({
       />
       <div className="absolute left-0 right-0 bottom-0 m-2 transition md:invisible md:group-hover:visible">
         <div className="flex items-center space-x-1">
-          <p className="select-none text-black dark:text-white font-bold">
+          <span className="select-none text-black dark:text-white font-bold">
             {title}
-          </p>
+          </span>
           <AiOutlineLink className="text-black dark:text-white" />
         </div>
         <p className="text-xs text-left whitespace-pre-wrap text-black dark:text-white select-none">

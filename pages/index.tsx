@@ -33,16 +33,16 @@ export default function Home({
       <div className="w-full flex flex-col items-center mt-8 min-h-fit">
         <Container className="flex">
           <div className="flex-grow mr-4">
-            <p className="text-5xl font-bold text-transparent bg-clip-text from-blue-600 to-blue-200 bg-gradient-to-r">
+            <h1 className="text-5xl font-bold text-transparent bg-clip-text from-blue-600 to-blue-200 bg-gradient-to-r">
               mtaku3
-            </p>
-            <p className="mt-2">鹿児島工業高等専門学校の学生</p>
-            <p className="mt-4">
+            </h1>
+            <span className="mt-2">鹿児島工業高等専門学校の学生</span>
+            <h2 className="mt-4">
               独学でプログラミングを学びながら、AIの研究をしています。
               <br />
               興味はWEB開発に限らず、アセンブリ言語やデスクトップアプリなど幅広く勉強しています。
-            </p>
-            <p className="text-lg font-bold mt-4">Projects</p>
+            </h2>
+            <h3 className="text-lg font-bold mt-4">Projects</h3>
           </div>
           <div className="flex-wrap shrink-0">
             <Image

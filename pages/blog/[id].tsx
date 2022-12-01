@@ -6,6 +6,7 @@ import { BiHistory } from "react-icons/bi";
 import HTMLParser from "../../components/HTMLParser";
 import { useEffect, useState } from "react";
 import { AiOutlineTags } from "react-icons/ai";
+import { NextSeo } from "next-seo";
 
 type PostPageProps = {
   post: Post & MicroCMSListContent;
@@ -21,28 +22,31 @@ export default function PostPage({
   }, [post.updatedAt]);
 
   return (
-    <Container className="space-y-4">
-      <p className="text-5xl font-extrabold">{post.title}</p>
-      <div className="ml-4 flex gap-4">
-        <p className="flex-grow">{post.description}</p>
-        <div className="flex items-center gap-2">
-          {post.categories.map((category) => (
-            <div
-              key={category.id}
-              className="flex gap-1 items-center justify-center"
-            >
-              <AiOutlineTags className="h-4 w-4" />
-              <p className="text-sm">{category.name}</p>
-            </div>
-          ))}
-          <BiHistory className="h-5 w-5" />
-          <p>{updatedAt}</p>
+    <>
+      <NextSeo title={`Blog - ${post.title}`} description={post.description} />
+      <Container className="space-y-4">
+        <h1 className="text-5xl font-extrabold">{post.title}</h1>
+        <div className="ml-4 flex gap-4">
+          <h2 className="flex-grow">{post.description}</h2>
+          <div className="flex items-center gap-2">
+            {post.categories.map((category) => (
+              <div
+                key={category.id}
+                className="flex gap-1 items-center justify-center"
+              >
+                <AiOutlineTags className="h-4 w-4" />
+                <span className="text-sm">{category.name}</span>
+              </div>
+            ))}
+            <BiHistory className="h-5 w-5" />
+            <span>{updatedAt}</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <HTMLParser src={post.content} />
-      </div>
-    </Container>
+        <div>
+          <HTMLParser src={post.content} />
+        </div>
+      </Container>
+    </>
   );
 }
 

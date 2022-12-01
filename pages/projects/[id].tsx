@@ -7,6 +7,7 @@ import HTMLParser from "../../components/HTMLParser";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
+import { NextSeo } from "next-seo";
 
 type ProjectPageProps = {
   project: Project & MicroCMSListContent;
@@ -22,25 +23,31 @@ export default function ProjectPage({
   }, [project.updatedAt]);
 
   return (
-    <Container className="space-y-4">
-      <p className="text-5xl font-extrabold">{project.title}</p>
-      <div className="ml-4 flex gap-4">
-        <p className="flex-grow">{project.description}</p>
-        <div className="flex items-center gap-2">
-          {project.url && (
-            <Link className="flex items-center gap-2" href={project.url}>
-              <BiLinkExternal className="h-5 w-5" />
-              <p>詳細を見る</p>
-            </Link>
-          )}
-          <BiHistory className="h-5 w-5" />
-          <p>{updatedAt}</p>
+    <>
+      <NextSeo
+        title={`Project - ${project.title}`}
+        description={project.description}
+      />
+      <Container className="space-y-4">
+        <h1 className="text-5xl font-extrabold">{project.title}</h1>
+        <div className="ml-4 flex gap-4">
+          <h2 className="flex-grow">{project.description}</h2>
+          <div className="flex items-center gap-2">
+            {project.url && (
+              <Link className="flex items-center gap-2" href={project.url}>
+                <BiLinkExternal className="h-5 w-5" />
+                <span>詳細を見る</span>
+              </Link>
+            )}
+            <BiHistory className="h-5 w-5" />
+            <span>{updatedAt}</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <HTMLParser src={project.content} />
-      </div>
-    </Container>
+        <div>
+          <HTMLParser src={project.content} />
+        </div>
+      </Container>
+    </>
   );
 }
 

@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider disableTransitionOnChange attribute="class">
       <DefaultSeo
         defaultTitle="mtaku3's Portfolio"
+        description="mtaku3のポートフォリオ兼ブログサイト"
         openGraph={{
           type: "website",
           locale: "ja_JP",

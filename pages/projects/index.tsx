@@ -32,7 +32,10 @@ export default function Projects({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo title="mtaku3 - Projects" />
+      <NextSeo
+        title="mtaku3 - Projects"
+        description="開発したアプリケーションやサービスの一覧です。併せてGithubもご覧ください。"
+      />
       <Container className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <Image
@@ -43,11 +46,11 @@ export default function Projects({
             width={300}
           />
           <div className="flex flex-col gap-y-4 justify-center items-center">
-            <p className="text-2xl font-extrabold">Projects</p>
-            <p>
+            <h1 className="text-2xl font-extrabold">Projects</h1>
+            <h2>
               一部のプロジェクトはこの一覧には載っていない場合があります。
               詳しくはGithubをご確認くださいませ
-            </p>
+            </h2>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -59,13 +62,13 @@ export default function Projects({
             >
               <div className="flex gap-x-2 items-center">
                 <HiOutlineFlag className="h-4 w-4 shrink-0" />
-                <p className="font-bold break-all whitespace-normal">
+                <h3 className="font-bold break-all whitespace-normal">
                   {project.title}
-                </p>
+                </h3>
               </div>
-              <p className="text-sm whitespace-pre-wrap">
+              <h4 className="text-sm whitespace-pre-wrap">
                 {project.description}
-              </p>
+              </h4>
             </Link>
           ))}
         </div>

@@ -110,7 +110,10 @@ export default function Blog({
 
   return (
     <>
-      <NextSeo title="mtaku3 - Blog" />
+      <NextSeo
+        title="mtaku3 - Blog"
+        description="技術記事や開発記録を投稿しています"
+      />
       <Container className="flex flex-col gap-y-4">
         <div className="grid grid-cols-2 gap-4">
           <Image
@@ -121,7 +124,7 @@ export default function Blog({
             width={300}
           />
           <div className="flex flex-col gap-y-4 justify-center items-center">
-            <p className="text-2xl font-extrabold">Blog</p>
+            <h1 className="text-2xl font-extrabold">Blog</h1>
           </div>
         </div>
         <div className="ml-auto flex space-x-2">
@@ -143,7 +146,7 @@ export default function Blog({
                   >
                     <div className="mx-auto flex items-center gap-2">
                       <MdClearAll className="h-4 w-4" />
-                      <div>クリア</div>
+                      <span>クリア</span>
                     </div>
                   </button>
                 )}
@@ -157,7 +160,7 @@ export default function Blog({
                   >
                     <div className="mx-auto flex items-center gap-2">
                       <AiOutlineTags className="h-4 w-4" />
-                      <p className="text-sm">{category.name}</p>
+                      <span className="text-sm">{category.name}</span>
                     </div>
                   </button>
                 ))}
@@ -201,11 +204,13 @@ export default function Blog({
             >
               <div className="flex gap-x-2 items-center">
                 <HiOutlineFlag className="h-4 w-4 shrink-0" />
-                <p className="font-bold break-all whitespace-normal">
+                <h3 className="font-bold break-all whitespace-normal">
                   {post.title}
-                </p>
+                </h3>
               </div>
-              <p className="text-sm whitespace-pre-wrap">{post.description}</p>
+              <h4 className="text-sm whitespace-pre-wrap">
+                {post.description}
+              </h4>
               {post.categories.length > 0 && (
                 <div className="mt-2 ml-auto flex flex-row gap-2">
                   {post.categories.map((category) => (
@@ -214,7 +219,7 @@ export default function Blog({
                       className="flex gap-1 items-center justify-center"
                     >
                       <AiOutlineTags className="h-4 w-4" />
-                      <p className="text-sm">{category.name}</p>
+                      <span className="text-sm">{category.name}</span>
                     </div>
                   ))}
                 </div>
