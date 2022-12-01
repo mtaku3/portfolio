@@ -11,6 +11,10 @@ const nextConfig = {
       },
     ],
   },
+  i18n: {
+    locales: ["ja"],
+    defaultLocale: "ja",
+  },
 };
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({

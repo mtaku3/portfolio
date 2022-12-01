@@ -27,6 +27,7 @@ export default function ThemeChanger() {
           : "p-3 rounded-xl bg-gray-600 hover:bg-gray-700"
       }
       onClick={toggleTheme}
+      aria-label="Theme toggle button"
     >
       {resolvedTheme === "light" && (
         <motion.div

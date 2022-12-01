@@ -120,8 +120,8 @@ export default function Blog({
             className="mx-auto my-auto"
             src="/seo_illustrations_8.svg"
             alt="seo illustrations"
-            height={300}
-            width={300}
+            height={150}
+            width={250}
           />
           <div className="flex flex-col gap-y-4 justify-center items-center">
             <h1 className="text-2xl font-extrabold">Blog</h1>
@@ -204,13 +204,13 @@ export default function Blog({
             >
               <div className="flex gap-x-2 items-center">
                 <HiOutlineFlag className="h-4 w-4 shrink-0" />
-                <h3 className="font-bold break-all whitespace-normal">
+                <h2 className="font-bold break-all whitespace-normal">
                   {post.title}
-                </h3>
+                </h2>
               </div>
-              <h4 className="text-sm whitespace-pre-wrap">
+              <h3 className="text-sm whitespace-pre-wrap">
                 {post.description}
-              </h4>
+              </h3>
               {post.categories.length > 0 && (
                 <div className="mt-2 ml-auto flex flex-row gap-2">
                   {post.categories.map((category) => (

@@ -42,8 +42,8 @@ export default function Projects({
             className="mx-auto my-auto"
             src="/webdesign_icons1.svg"
             alt="webdesign icon"
-            height={300}
-            width={300}
+            height={180}
+            width={250}
           />
           <div className="flex flex-col gap-y-4 justify-center items-center">
             <h1 className="text-2xl font-extrabold">Projects</h1>
