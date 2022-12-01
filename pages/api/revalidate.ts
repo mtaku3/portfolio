@@ -87,22 +87,22 @@ export default async function handler(
         data = WebhookProjectSchema.parse(body);
 
         if (data.id) {
-          res.revalidate(`/projects/${data.id}`);
+          await res.revalidate(`/projects/${data.id}`);
         }
-        res.revalidate("/projects");
+        await res.revalidate("/projects");
 
-        res.revalidate("/");
+        await res.revalidate("/");
       } else if (data.api === "posts") {
         data = WebhookPostSchema.parse(body);
 
         if (data.id) {
-          res.revalidate(`/blog/${data.id}`);
+          await res.revalidate(`/blog/${data.id}`);
         }
-        res.revalidate("/blog");
+        await res.revalidate("/blog");
       } else if (data.api === "categories") {
         data = WebhookCategorySchema.parse(body);
 
-        res.revalidate("/blog");
+        await res.revalidate("/blog");
       } else {
         throw new Error("Unexpected api endpoint: " + data.api);
       }
