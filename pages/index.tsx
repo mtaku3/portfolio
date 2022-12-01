@@ -47,10 +47,10 @@ export default function Home({
           <div className="flex-wrap shrink-0">
             <Image
               className="rounded-full h-32 w-32"
-              src="/mtaku3.jpg"
+              src="/mtaku3.webp"
               alt="mtaku3's profile picture"
-              width={200}
-              height={200}
+              width={128}
+              height={128}
             />
           </div>
         </Container>
