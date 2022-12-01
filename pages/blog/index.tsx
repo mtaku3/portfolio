@@ -199,7 +199,7 @@ export default function Blog({
           {sortedPosts.map((post) => (
             <Link
               key={post.id}
-              className="flex flex-col p-4 shadow-md dark:shadow-gray-800 rounded-xl select-none"
+              className="flex flex-col p-4 shadow-md hover:bg-gray-100 dark:shadow-gray-800 dark:bg-gray-900 hover:dark:bg-gray-800 rounded-xl select-none"
               href={`/blog/${post.id}`}
             >
               <div className="flex gap-x-2 items-center">

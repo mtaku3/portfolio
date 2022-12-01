@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  color: #c9d1d9;
+  color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 16px;
@@ -91,7 +91,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .markdown-body mark {
   background-color: rgba(187, 128, 9, 0.15);
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body small {
@@ -247,7 +247,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
     Liberation Mono, monospace;
   line-height: 10px;
-  color: #c9d1d9;
+  color: #ffffff;
   vertical-align: middle;
   background-color: #161b22;
   border: solid 1px rgba(110, 118, 129, 0.4);
@@ -382,7 +382,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .markdown-body .pl-smi,
 .markdown-body .pl-s .pl-s1 {
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body .pl-ent {
@@ -440,12 +440,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .markdown-body .pl-mi {
   font-style: italic;
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body .pl-mb {
   font-weight: bold;
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body .pl-md {
@@ -464,7 +464,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .markdown-body .pl-mi2 {
-  color: #c9d1d9;
+  color: #ffffff;
   background-color: #1158c7;
 }
 
@@ -577,7 +577,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .markdown-body h4 .octicon-link,
 .markdown-body h5 .octicon-link,
 .markdown-body h6 .octicon-link {
-  color: #c9d1d9;
+  color: #ffffff;
   vertical-align: middle;
   visibility: hidden;
 }
@@ -732,7 +732,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   display: block;
   padding: 5px 0 0;
   clear: both;
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body span.align-center {
@@ -913,7 +913,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .markdown-body .footnotes li:target {
-  color: #c9d1d9;
+  color: #ffffff;
 }
 
 .markdown-body .footnotes .data-footnote-backref g-emoji {

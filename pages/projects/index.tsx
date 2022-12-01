@@ -57,7 +57,7 @@ export default function Projects({
           {projects.map((project) => (
             <Link
               key={project.id}
-              className="flex flex-col p-4 shadow-md dark:shadow-gray-800 rounded-xl select-none"
+              className="flex flex-col p-4 shadow-md hover:bg-gray-100 dark:shadow-gray-800 dark:bg-gray-900 hover:dark:bg-gray-800 rounded-xl select-none"
               href={`/projects/${project.id}`}
             >
               <div className="flex gap-x-2 items-center">
