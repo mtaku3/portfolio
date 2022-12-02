@@ -15,6 +15,14 @@ const nextConfig = {
     locales: ["ja"],
     defaultLocale: "ja",
   },
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/api/sitemap",
+      },
+    ];
+  },
 };
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
