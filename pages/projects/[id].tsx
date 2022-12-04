@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
 import { NextSeo } from "next-seo";
+import { getCanonicalURL } from "../../utils";
 
 type ProjectPageProps = {
   project: Project & MicroCMSListContent;
@@ -27,6 +28,17 @@ export default function ProjectPage({
       <NextSeo
         title={`Project - ${project.title}`}
         description={project.description}
+        canonical={getCanonicalURL(`/projects/${project.id}`)}
+        openGraph={{
+          type: "article",
+          title: `Project - ${project.title}`,
+          description: project.description,
+          url: getCanonicalURL(`/projects/${project.id}`),
+          article: {
+            publishedTime: project.createdAt,
+            modifiedTime: project.updatedAt,
+          },
+        }}
       />
       <Container className="space-y-4">
         <h1 className="text-5xl font-extrabold">{project.title}</h1>

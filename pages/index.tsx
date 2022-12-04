@@ -5,6 +5,7 @@ import ProjectCard from "../components/projectCard";
 import MicroCMSClient, { Project } from "../microcms";
 import { MicroCMSListContent } from "microcms-js-sdk";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getCanonicalURL } from "../utils";
 
 type HomeProps = {
   projects: (Project & MicroCMSListContent)[];
@@ -30,6 +31,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+      <NextSeo canonical={getCanonicalURL()} />
       <div className="w-full flex flex-col items-center mt-8 min-h-fit">
         <Container className="flex">
           <div className="flex-grow mr-4">

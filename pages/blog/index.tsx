@@ -10,6 +10,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { AiOutlineTags } from "react-icons/ai";
 import { useCallback, useEffect, useState } from "react";
 import { MdClear, MdClearAll } from "react-icons/md";
+import { getCanonicalURL } from "../../utils";
 
 type BlogProps = {
   posts: (Post & MicroCMSListContent)[];
@@ -113,6 +114,12 @@ export default function Blog({
       <NextSeo
         title="mtaku3 - Blog"
         description="技術記事や開発記録を投稿しています"
+        canonical={getCanonicalURL("/blog")}
+        openGraph={{
+          title: "mtaku3 - Blog",
+          description: "技術記事や開発記録を投稿しています",
+          url: getCanonicalURL("/blog"),
+        }}
       />
       <Container className="flex flex-col gap-y-4">
         <div className="grid grid-cols-2 gap-4">

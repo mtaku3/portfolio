@@ -7,6 +7,7 @@ import HTMLParser from "../../components/HTMLParser";
 import { useEffect, useState } from "react";
 import { AiOutlineTags } from "react-icons/ai";
 import { NextSeo } from "next-seo";
+import { getCanonicalURL } from "../../utils";
 
 type PostPageProps = {
   post: Post & MicroCMSListContent;
@@ -23,7 +24,22 @@ export default function PostPage({
 
   return (
     <>
-      <NextSeo title={`Blog - ${post.title}`} description={post.description} />
+      <NextSeo
+        title={`Blog - ${post.title}`}
+        description={post.description}
+        canonical={getCanonicalURL(`/blog/${post.id}`)}
+        openGraph={{
+          type: "article",
+          title: `Blog - ${post.title}`,
+          description: post.description,
+          url: getCanonicalURL(`/blog/${post.id}`),
+          article: {
+            publishedTime: post.createdAt,
+            modifiedTime: post.updatedAt,
+            tags: post.categories.map((category) => category.name),
+          },
+        }}
+      />
       <Container className="space-y-4">
         <h1 className="text-5xl font-extrabold">{post.title}</h1>
         <div className="ml-4 flex gap-4">

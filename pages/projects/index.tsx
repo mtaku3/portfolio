@@ -7,6 +7,7 @@ import MicroCMSClient from "../../microcms";
 import { HiOutlineFlag } from "react-icons/hi2";
 import Link from "next/link";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getCanonicalURL } from "../../utils";
 
 type ProjectsProps = {
   projects: (Project & MicroCMSListContent)[];
@@ -35,6 +36,13 @@ export default function Projects({
       <NextSeo
         title="mtaku3 - Projects"
         description="開発したアプリケーションやサービスの一覧です。併せてGithubもご覧ください。"
+        canonical={getCanonicalURL("/projects")}
+        openGraph={{
+          title: "mtaku3 - Projects",
+          description:
+            "開発したアプリケーションやサービスの一覧です。併せてGithubもご覧ください。",
+          url: getCanonicalURL("/projects"),
+        }}
       />
       <Container className="space-y-4">
         <div className="grid grid-cols-2 gap-4">

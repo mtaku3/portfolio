@@ -13,10 +13,11 @@ export default function App({ Component, pageProps }: AppProps) {
         openGraph={{
           type: "website",
           locale: "ja_JP",
-          url: "https://www.mtaku3.com",
-          site_name: "mtaku3's portfolio & blog",
+          title: "mtaku3's Portfolio",
           description:
             "mtaku3のポートフォリオ兼ブログサイト サイドプロジェクトの詳細情報や技術記事が閲覧できます",
+          url: process.env.URL,
+          site_name: "mtaku3's portfolio & blog",
         }}
         twitter={{
           handle: "@DYZdK2oir7Pm",

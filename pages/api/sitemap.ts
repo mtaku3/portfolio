@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 import MicroCMSClient, { Project, Post } from "../../microcms";
+import { getCanonicalURL } from "../../utils";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,7 +9,7 @@ export default async function handler(
 ) {
   let pages: string[] = [];
   try {
-    const request = await fetch("https://www.mtaku3.com/routes.json");
+    const request = await fetch(getCanonicalURL("routes.json"));
     const json = await request.json();
 
     pages = z.string().array().parse(json);
@@ -40,7 +41,7 @@ export default async function handler(
         .map((route) => {
           return `
             <url>
-                <loc>${`https://www.mtaku3.com${route}`}</loc>
+                <loc>${`${process.env.URL}${route}`}</loc>
             </url>
           `;
         })
