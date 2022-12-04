@@ -38,3 +38,5 @@ next-env.d.ts
 # vscode
 .devcontainer/
 .vscode/
+
+public/routes.json

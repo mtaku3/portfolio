@@ -1,29 +1,19 @@
-import { globby } from "globby";
 import { NextApiRequest, NextApiResponse } from "next";
+import { z } from "zod";
 import MicroCMSClient, { Project, Post } from "../../microcms";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const pages = await globby([
-    "pages/**/*.tsx",
-    "!pages/**/\\[*\\].tsx",
-    "!pages/**/\\[*\\]",
-    "!pages/_*.tsx",
-    "!pages/api",
-  ]);
+  let pages: string[] = [];
+  try {
+    const request = await fetch("https://www.mtaku3.com/routes.json");
+    const json = await request.json();
 
-  for (let i = 0; i < pages.length; i++) {
-    pages[i] = pages[i].replace("pages", "").replace(".tsx", "");
-
-    if (pages[i].includes("/index")) {
-      if (pages[i] === "/index") {
-        pages[i] = "/";
-      } else {
-        pages[i] = pages[i].replace("/index", "");
-      }
-    }
+    pages = z.string().array().parse(json);
+  } catch (err) {
+    console.log("Error: ", err);
   }
 
   const { contents: projects } = await MicroCMSClient.getList<Project>({
