@@ -41,7 +41,7 @@ export default async function handler(
         .map((route) => {
           return `
             <url>
-                <loc>${`${process.env.URL}${route}`}</loc>
+                <loc>${getCanonicalURL(route)}</loc>
             </url>
           `;
         })
