@@ -64,12 +64,12 @@ export default function PostPage({
   return (
     <>
       <NextSeo
-        title={`Blog - ${post.title}`}
+        title={`PREVIEW | Blog - ${post.title}`}
         description={post.description}
         canonical={getCanonicalURL(`/blog/${post.id}`)}
         openGraph={{
           type: "article",
-          title: `Blog - ${post.title}`,
+          title: `PREVIEW | Blog - ${post.title}`,
           description: post.description,
           url: getCanonicalURL(`/blog/${post.id}`),
           article: {
