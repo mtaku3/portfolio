@@ -64,6 +64,8 @@ export default function PostPage({
   return (
     <>
       <NextSeo
+        noindex
+        nofollow
         title={`PREVIEW | Blog - ${post.title}`}
         description={post.description}
         canonical={getCanonicalURL(`/blog/${post.id}`)}

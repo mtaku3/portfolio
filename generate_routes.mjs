@@ -5,6 +5,7 @@ import { writeFileSync } from "fs";
 async function generate_routes() {
   const routes = await globby([
     "pages/**/*.tsx",
+    "pages/**/preview.tsx",
     "!pages/**/\\[*\\].tsx",
     "!pages/**/\\[*\\]",
     "!pages/_*.tsx",

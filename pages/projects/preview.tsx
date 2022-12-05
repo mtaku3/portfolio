@@ -64,6 +64,8 @@ export default function Preview({
   return (
     <>
       <NextSeo
+        noindex
+        nofollow
         title={`PREVIEW | Project - ${project.title}`}
         description={project.description}
         openGraph={{
