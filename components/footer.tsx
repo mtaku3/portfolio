@@ -2,6 +2,7 @@ import Container from "./container";
 import { SlSocialTwitter } from "react-icons/sl";
 import { BsGithub } from "react-icons/bs";
 import Link from "next/link";
+import SupportMeButton from "./supportMeButton";
 
 export default function Footer() {
   return (
@@ -16,6 +17,9 @@ export default function Footer() {
       <p className="text-gray-500 dark:text-gray-300 mt-2">
         TwitterのDMにお気軽にご連絡ください
       </p>
+      <div className="mt-4">
+        <SupportMeButton />
+      </div>
       <div className="mt-4 flex flex-row space-x-4">
         <Link href="https://twitter.com/DYZdK2oir7Pm" aria-label="Twitter link">
           <SlSocialTwitter className="h-5 w-5" />
