@@ -21,7 +21,7 @@ export default function Footer() {
         <SupportMeButton />
       </div>
       <div className="mt-4 flex flex-row space-x-4">
-        <Link href="https://twitter.com/DYZdK2oir7Pm" aria-label="Twitter link">
+        <Link href="https://twitter.com/mtaku3dev" aria-label="Twitter link">
           <SlSocialTwitter className="h-5 w-5" />
         </Link>
         <Link href="https://github.com/mtaku3" aria-label="Github link">
