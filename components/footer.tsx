@@ -3,6 +3,7 @@ import { SlSocialTwitter } from "react-icons/sl";
 import { BsGithub } from "react-icons/bs";
 import Link from "next/link";
 import SupportMeButton from "./supportMeButton";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -21,6 +22,15 @@ export default function Footer() {
         <SupportMeButton />
       </div>
       <div className="mt-4 flex flex-row space-x-4">
+        <Link href="https://giraffe-webcrate.mtaku3.deta.app/crate/public/yn51i1BLijMx9DOL" aria-label="SNS WebCrate link">
+          <Image
+            className=" h-5 w-5"
+            src="/WebCrate.webp"
+            alt="mtaku3's SNS WebCrate"
+            width={32}
+            height={32}
+          />
+        </Link>
         <Link href="https://twitter.com/mtaku3dev" aria-label="Twitter link">
           <SlSocialTwitter className="h-5 w-5" />
         </Link>
