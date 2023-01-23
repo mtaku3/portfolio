@@ -202,35 +202,34 @@ export default function Blog({
             )}
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="flex flex-col">
           {sortedPosts.map((post) => (
             <Link
               key={post.id}
-              className="flex flex-col p-4 shadow-md hover:bg-gray-100 dark:shadow-gray-800 dark:bg-gray-900 hover:dark:bg-gray-800 rounded-xl select-none"
-              href={`/blog/${post.id}`}
+              className="flex flex-col rounded-sm p-4 border-b-2 last:border-b-0 bg-gray-100 hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 hover:dark:bg-gray-700"
+              href={`/projects/${post.id}`}
             >
               <div className="flex gap-x-2 items-center">
-                <HiOutlineFlag className="h-4 w-4 shrink-0" />
-                <h2 className="font-bold break-all whitespace-normal">
-                  {post.title}
-                </h2>
-              </div>
-              <h3 className="text-sm whitespace-pre-wrap">
-                {post.description}
-              </h3>
-              {post.categories.length > 0 && (
-                <div className="mt-2 ml-auto flex flex-row gap-2">
-                  {post.categories.map((category) => (
-                    <div
-                      key={category.id}
-                      className="flex gap-1 items-center justify-center"
-                    >
-                      <AiOutlineTags className="h-4 w-4" />
-                      <span className="text-sm">{category.name}</span>
+                <h3 className="font-bold text-xl break-all whitespace-normal">{post.title}</h3>
+                <div className="ml-2 flex items-center">
+                  {post.categories.length > 0 && (
+                    <div className="flex flex-row gap-2">
+                      {post.categories.map((category) => (
+                        <div
+                          key={category.id}
+                          className="flex gap-1 items-center"
+                        >
+                          <AiOutlineTags className="h-4 w-4" />
+                          <span className="text-sm">{category.name}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
-              )}
+              </div>
+              <h4 className="ml-2 text-sm whitespace-pre-wrap">
+                {post.description}
+              </h4>
             </Link>
           ))}
         </div>
