@@ -207,7 +207,7 @@ export default function Blog({
             <Link
               key={post.id}
               className="flex flex-col rounded-sm p-4 border-b-2 last:border-b-0 bg-gray-100 hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 hover:dark:bg-gray-700"
-              href={`/projects/${post.id}`}
+              href={`/blog/${post.id}`}
             >
               <div className="flex gap-x-2 items-center">
                 <h3 className="font-bold text-xl break-all whitespace-normal">{post.title}</h3>
