@@ -55,6 +55,7 @@ export default function ProjectPage({
             <span>{updatedAt}</span>
           </div>
         </div>
+        <div className="border-t border-gray-400" />
         <div>
           <HTMLParser src={project.content} />
         </div>

@@ -58,6 +58,7 @@ export default function PostPage({
             <span>{updatedAt}</span>
           </div>
         </div>
+        <div className="border-t border-gray-400" />
         <div>
           <HTMLParser src={post.content} />
         </div>
