@@ -22,11 +22,11 @@ export default function Footer() {
         <SupportMeButton />
       </div>
       <div className="mt-4 flex flex-row space-x-4">
-        <Link href="https://webcrate-1-z5786317.deta.app/crate/public/yn51i1BLijMx9DOL" aria-label="SNS WebCrate link">
+        <Link href="https://linktr.ee/mtaku3" aria-label="Linktree link">
           <Image
             className=" h-5 w-5"
-            src="/WebCrate.webp"
-            alt="mtaku3's SNS WebCrate"
+            src="/Linktree.webp"
+            alt="mtaku3's Linktree"
             width={32}
             height={32}
           />
