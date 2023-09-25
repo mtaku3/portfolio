@@ -4,6 +4,8 @@
 
 @layer base {
   body {
+    @apply min-h-screen w-full;
+
     @apply bg-zinc-200 dark:bg-zinc-800;
     background-image: url("/noise.webp");
   }
