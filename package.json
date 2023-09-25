@@ -9,15 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.4.2",
     "@t3-oss/env-nextjs": "^0.6.1",
     "@tinacms/auth": "^1.0.3",
     "@tinacms/cli": "^1.5.29",
+    "@types/negotiator": "^0.6.1",
     "@types/node": "20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "negotiator": "^0.6.3",
     "next": "13.5.2",
     "postcss": "8.4.30",
     "react": "18.2.0",
