@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+JP&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply font-sans;
+  }
+
   body {
     @apply min-h-screen w-full;
 
