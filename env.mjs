@@ -7,6 +7,8 @@ export const env = createEnv({
    * Will throw if you access these variables on the client.
    */
   server: {
+    NODE_ENV: z.string().default("development"),
+
     TINACMS_TOKEN: z.string().min(1),
   },
   /*
@@ -24,6 +26,8 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+
     NEXT_PUBLIC_TINACMS_CLIENTID: process.env.NEXT_PUBLIC_TINACMS_CLIENTID,
     TINACMS_TOKEN: process.env.TINACMS_TOKEN,
   },
