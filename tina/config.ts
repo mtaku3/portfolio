@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import { PageCollection } from "./schema/collections";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
@@ -29,6 +30,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [],
+    collections: [PageCollection],
   },
 });
