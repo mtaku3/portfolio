@@ -1,4 +1,5 @@
 import client from "@/tina/__generated__/client";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -27,4 +28,22 @@ export async function generateStaticParams() {
     };
   });
   return pages;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  let relativePath = "";
+  if (params.slug === undefined) {
+    relativePath = `${params.lang}/home.md`;
+  } else {
+    relativePath = `${params.lang}/${params.slug}.md`;
+  }
+
+  const page = await client.queries.page({
+    relativePath,
+  });
+  console.log(relativePath, page);
+
+  return {
+    title: page.data.page.seo?.title,
+  };
 }
