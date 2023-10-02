@@ -1,5 +1,8 @@
+import PagePreview from "./preview";
+import PageTemplate from "./template";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 
 type Props = {
   params: {
@@ -9,7 +12,24 @@ type Props = {
 };
 
 export default async function Page({ params }: Props) {
-  return <></>;
+  const { isEnabled } = draftMode();
+
+  let relativePath = "";
+  if (params.slug === undefined) {
+    relativePath = `${params.lang}/home.md`;
+  } else {
+    relativePath = `${params.lang}/${params.slug}.md`;
+  }
+
+  const tinaData = await client.queries.page({
+    relativePath,
+  });
+
+  if (isEnabled) {
+    return <PagePreview {...tinaData} />;
+  } else {
+    return <PageTemplate {...tinaData} />;
+  }
 }
 
 export async function generateStaticParams() {
@@ -41,7 +61,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = await client.queries.page({
     relativePath,
   });
-  console.log(relativePath, page);
 
   return {
     title: page.data.page.seo?.title,
