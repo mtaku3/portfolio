@@ -1,3 +1,4 @@
+import Blocks from "@/app/_components/Blocks";
 import { PageQuery, PageQueryVariables } from "@/tina/__generated__/types";
 
 type Props = {
@@ -7,5 +8,5 @@ type Props = {
 };
 
 export default function PageTemplate({ data }: Props) {
-  return <div></div>;
+  return <Blocks blocks={data.page.blocks} />;
 }

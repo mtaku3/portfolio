@@ -1,5 +1,6 @@
 "use client";
 
+import Blocks from "@/app/_components/Blocks";
 import { PageQuery, PageQueryVariables } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 
@@ -12,5 +13,5 @@ type Props = {
 export default function PagePreview(tinaData: Props) {
   const { data } = useTina(tinaData);
 
-  return <div></div>;
+  return <Blocks blocks={data.page.blocks} />;
 }

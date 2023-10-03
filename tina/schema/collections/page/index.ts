@@ -1,4 +1,5 @@
 import { SEOField } from "../../fields";
+import { ProfileTemplate } from "./blocks/Profile";
 import type { Collection } from "tinacms";
 
 export const PageCollection: Collection = {
@@ -19,13 +20,13 @@ export const PageCollection: Collection = {
   },
   fields: [
     SEOField,
-    // {
-    //   label: "Blocks",
-    //   name: "blocks",
-    //   type: "object",
-    //   list: true,
-    //   required: true,
-    //   templates: [],
-    // },
+    {
+      label: "Blocks",
+      name: "blocks",
+      type: "object",
+      list: true,
+      required: true,
+      templates: [ProfileTemplate],
+    },
   ],
 };
