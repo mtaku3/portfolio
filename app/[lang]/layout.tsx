@@ -17,14 +17,22 @@ export default function RootLayout({ children, params }: Props) {
         <ThemeProvider attribute="class">
           <main
             className="
-              grid min-h-full w-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-1 px-4
-              md:gap-2 md:px-6
-              lg:gap-4 lg:px-24
+              flex min-h-full w-full flex-col px-4
+              md:px-6
+              lg:px-24
               xl:mx-auto xl:max-w-screen-lg xl:px-0
             "
           >
             <Header />
-            {children}
+            <article
+              className="
+                grid w-full grid-cols-12 gap-1
+                md:gap-2
+                lg:gap-4
+              "
+            >
+              {children}
+            </article>
             <Footer />
           </main>
         </ThemeProvider>
