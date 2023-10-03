@@ -7,5 +7,5 @@ type Props = {
 };
 
 export default function PageTemplate({ data }: Props) {
-  return <></>;
+  return <div></div>;
 }

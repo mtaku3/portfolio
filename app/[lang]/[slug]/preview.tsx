@@ -12,5 +12,5 @@ type Props = {
 export default function PagePreview(tinaData: Props) {
   const { data } = useTina(tinaData);
 
-  return <></>;
+  return <div></div>;
 }

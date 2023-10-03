@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply min-h-screen w-full;
+    @apply h-0 min-h-screen w-full;
 
     @apply bg-zinc-200 dark:bg-zinc-900;
     background-image: url("/noise.webp");

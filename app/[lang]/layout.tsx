@@ -1,3 +1,4 @@
+import Footer from "../_components/Footer";
 import Header from "../_components/Header";
 import { ThemeProvider } from "../_components/ThemeProvider";
 import React from "react";
@@ -16,7 +17,7 @@ export default function RootLayout({ children, params }: Props) {
         <ThemeProvider attribute="class">
           <main
             className="
-              grid w-full grid-cols-12 gap-1 px-4
+              grid min-h-full w-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-1 px-4
               md:gap-2 md:px-6
               lg:gap-4 lg:px-24
               xl:mx-auto xl:max-w-screen-lg xl:px-0
@@ -24,6 +25,7 @@ export default function RootLayout({ children, params }: Props) {
           >
             <Header />
             {children}
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

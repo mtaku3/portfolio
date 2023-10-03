@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
+    "@icons-pack/react-simple-icons": "^9.0.1",
     "@t3-oss/env-nextjs": "^0.6.1",
     "@tinacms/auth": "^1.0.3",
     "@tinacms/cli": "^1.5.29",
