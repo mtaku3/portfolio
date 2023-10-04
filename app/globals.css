@@ -12,7 +12,8 @@
   body {
     @apply h-0 min-h-screen w-full;
 
-    @apply bg-zinc-200 dark:bg-zinc-900;
-    background-image: url("/noise.webp");
+    @apply bg-noise-white dark:bg-noise-dark;
+    background-size: 200px 200px;
+    background-position: 0 0;
   }
 }

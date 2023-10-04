@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         sans: ["Noto Sans JP", "Noto Color Emoji", "sans-serif"],
       },
+      backgroundImage: {
+        "noise-white": "url('/noise.light.svg')",
+        "noise-dark": "url('/noise.dark.svg')",
+      },
     },
   },
   plugins: [],
