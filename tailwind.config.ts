@@ -15,6 +15,12 @@ const config: Config = {
         "noise-white": "url('/noise.light.svg')",
         "noise-dark": "url('/noise.dark.svg')",
       },
+      listStyleType: {
+        roman: "lower-roman",
+        alpha: "lower-alpha",
+        circle: "circle",
+        square: "square",
+      },
     },
   },
   plugins: [],

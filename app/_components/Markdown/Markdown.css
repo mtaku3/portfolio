@@ -1,0 +1,87 @@
+@layer components {
+  .markdown {
+    h1 {
+      @apply my-8 text-4xl font-bold md:text-5xl;
+    }
+
+    h2 {
+      @apply my-8 text-3xl font-bold md:text-4xl;
+    }
+
+    h3 {
+      @apply my-8 text-2xl font-bold md:text-3xl;
+    }
+
+    h4 {
+      @apply my-8 text-xl font-bold md:text-2xl;
+    }
+
+    h5 {
+      @apply my-8 text-lg font-bold md:text-xl;
+    }
+
+    h6 {
+      @apply my-8 font-bold md:text-lg;
+    }
+
+    p {
+      @apply my-2;
+    }
+
+    a {
+      @apply text-blue-500 hover:text-blue-600 hover:underline;
+    }
+
+    pre {
+      @apply my-8 overflow-x-auto rounded-md bg-zinc-100 p-4 text-sm dark:bg-zinc-950;
+    }
+
+    code {
+      @apply font-mono;
+    }
+
+    ol {
+      @apply my-2 list-inside list-decimal;
+    }
+
+    ul:not(.contains-task-list) {
+      @apply my-2 list-inside list-disc;
+    }
+
+    li:is(.task-list-item) input[type="checkbox"] {
+      @apply mr-2;
+    }
+
+    li {
+      @apply my-2;
+    }
+
+    ol ol,
+    ul ol {
+      @apply list-roman ml-8;
+    }
+
+    ol ul,
+    ul ul {
+      @apply list-circle ml-8;
+    }
+
+    ol ol ol,
+    ol ul ol,
+    ul ol ol,
+    ul ul ol {
+      @apply list-alpha ml-8;
+    }
+
+    ol ol ul,
+    ol ul ul,
+    ul ol ul,
+    ul ul ul {
+      @apply list-square ml-8;
+    }
+
+    blockquote {
+      @apply my-2 border-l-4 border-zinc-300 pl-4 text-zinc-500 dark:border-zinc-600 dark:text-zinc-400;
+    }
+  }
+}
