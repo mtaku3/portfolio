@@ -1,1 +1,1 @@
-export { PageCollection } from "./page";
+export { PageCollection } from "./PageCollection/PageCollection";
