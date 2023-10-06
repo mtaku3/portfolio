@@ -17,7 +17,7 @@ export default function ProfileBlock({ data }: Props) {
       />
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold md:text-5xl">{data.name}</h1>
-        <h2 className="text-sm md:text-base lg:text-lg">{data.position}</h2>
+        <span className="text-sm md:text-base lg:text-lg">{data.position}</span>
       </div>
     </section>
   );
