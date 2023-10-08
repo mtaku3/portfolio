@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 type Props = {
   className?: string;
   events: {
@@ -9,7 +11,7 @@ type Props = {
 
 export default function Timeline({ className, events }: Props) {
   return (
-    <div className={className}>
+    <div className={clsx("ml-[5.5px]", className)}>
       <ol className="space-y-10 border-l border-gray-200 dark:border-gray-700">
         {events.map((event, idx) => (
           <li key={idx} className="ml-4">
