@@ -1,4 +1,5 @@
 import { SEOField } from "../../fields";
+import { ListTemplate } from "./blocks/List";
 import { ProfileTemplate } from "./blocks/Profile";
 import { SelfIntroductionTemplate } from "./blocks/SelfIntroduction";
 import { TimelineTemplate } from "./blocks/Timeline";
@@ -28,7 +29,12 @@ export const PageCollection: Collection = {
       type: "object",
       list: true,
       required: true,
-      templates: [TimelineTemplate, ProfileTemplate, SelfIntroductionTemplate],
+      templates: [
+        TimelineTemplate,
+        ListTemplate,
+        ProfileTemplate,
+        SelfIntroductionTemplate,
+      ],
     },
   ],
 };

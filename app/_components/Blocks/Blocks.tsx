@@ -1,3 +1,4 @@
+import ListBlock from "./_components/ListBlock/ListBlock";
 import ProfileBlock from "./_components/ProfileBlock";
 import SelfIntroductionBlock from "./_components/SelfIntroductionBlock";
 import TimelineBlock from "./_components/TimelineBlock";
@@ -18,6 +19,8 @@ export default function Blocks({ blocks }: Props) {
             return <SelfIntroductionBlock key={idx} data={block} />;
           case "PageBlocksTimeline":
             return <TimelineBlock key={idx} data={block} />;
+          case "PageBlocksList":
+            return <ListBlock key={idx} data={block} />;
           default:
             return <div key={idx}>Nothing to be rendered for this block</div>;
         }
