@@ -9,7 +9,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export default function DetailModal({ buttonText, children }: Props) {
+export default function ListModal({ buttonText, children }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   function open() {
@@ -22,14 +22,14 @@ export default function DetailModal({ buttonText, children }: Props) {
 
   return (
     <>
-      <button
+      <li
         onClick={open}
-        className="text-sm text-gray-400 dark:text-gray-500 md:text-base"
+        className="relative -left-2 cursor-pointer rounded-md p-2 text-sm text-gray-400 hover:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-800 md:text-base"
       >
         {buttonText}
-      </button>
+      </li>
       <Modal isOpen={isOpen} close={close}>
-        <div className="h-full w-full rounded-md border border-gray-300 bg-noise-white p-8 dark:border-gray-800 dark:bg-noise-dark md:h-auto md:w-[640px]">
+        <div className="h-full w-full bg-noise-white p-8 dark:bg-noise-dark md:h-auto md:w-[640px] md:rounded-md md:border md:border-gray-300 md:dark:border-gray-800">
           <div className="mb-8 space-y-4 md:hidden">
             <button onClick={close}>
               <X className="h-6 w-6" />

@@ -9,7 +9,7 @@ export default function TimelineBlock({ data }: Props) {
   return (
     <section className="col-span-full my-8 space-y-4">
       {data.titleForTimeline && (
-        <h3 className="text-xl font-bold md:text-2xl">
+        <h3 className="text-2xl font-bold md:text-3xl">
           {data.titleForTimeline}
         </h3>
       )}

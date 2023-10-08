@@ -1,4 +1,5 @@
-import DetailModal from "./DetailModal";
+import ListItem from "./ListItem";
+import ListModal from "./ListModal";
 import { PageBlocksList } from "@/tina/__generated__/types";
 
 type Props = {
@@ -18,37 +19,34 @@ export default function ListBlock({ data }: Props) {
   return (
     <section className="col-span-full my-8 space-y-8 md:col-span-6">
       {data.titleForList && (
-        <h3 className="text-xl font-bold md:text-2xl">{data.titleForList}</h3>
+        <h3 className="text-2xl font-bold md:text-3xl">{data.titleForList}</h3>
       )}
       <ol className="space-y-4">
-        {items.map((name, idx) => (
-          <li key={idx} className="font-semibold md:text-lg">
-            {name}
-          </li>
+        {items.map((item, idx) => (
+          <ListItem key={idx} item={item} />
         ))}
         {restOfItems && (
-          <DetailModal
-            buttonText={`${restOfItems.slice(0, 3).join(", ")} and more`}
+          <ListModal
+            buttonText={`${restOfItems
+              .slice(0, 3)
+              .map((x) => x.name)
+              .join(", ")} and more`}
           >
             <div className="space-y-8">
-              <h3 className="text-xl font-bold md:text-2xl">
+              <h3 className="text-2xl font-bold md:text-3xl">
                 {data.titleForList}
               </h3>
               <ol className="space-y-4">
-                {items.map((name, idx) => (
-                  <li key={idx} className="font-semibold md:text-lg">
-                    {name}
-                  </li>
+                {items.map((item, idx) => (
+                  <ListItem key={idx} item={item} />
                 ))}
                 <hr className="border-t border-gray-300" />
-                {restOfItems.map((name, idx) => (
-                  <li key={idx} className="font-semibold md:text-lg">
-                    {name}
-                  </li>
+                {restOfItems.map((item, idx) => (
+                  <ListItem key={idx} item={item} />
                 ))}
               </ol>
             </div>
-          </DetailModal>
+          </ListModal>
         )}
       </ol>
     </section>

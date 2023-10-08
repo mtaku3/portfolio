@@ -12,9 +12,30 @@ export const ListTemplate: Template = {
     {
       name: "items",
       label: "Items",
-      type: "string",
+      type: "object",
       list: true,
       required: true,
+      fields: [
+        {
+          name: "name",
+          label: "Name",
+          type: "string",
+          required: true,
+        },
+        {
+          name: "shortDescription",
+          label: "Short Description",
+          type: "string",
+        },
+        {
+          name: "description",
+          label: "Description",
+          type: "string",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
     },
     {
       name: "numOfItemsToShow",
