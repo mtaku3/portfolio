@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply min-h-screen w-full;
+    @apply h-0 min-h-screen w-full;
 
     @apply bg-noise-white dark:bg-noise-dark;
     background-size: 200px 200px;

@@ -6,7 +6,8 @@
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
 	"remoteUser": "node",
 	"mounts": [
-		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+		"source=${localWorkspaceFolder}/../portfolio-contents,target=${containerWorkspaceFolder}/../portfolio-contents,type=bind,consistency=cached"
 	],
 	"postCreateCommand": "sudo chown node node_modules",
 	"customizations": {
