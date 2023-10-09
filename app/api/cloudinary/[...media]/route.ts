@@ -149,6 +149,8 @@ export async function DELETE(request: NextRequest, { params }: Props) {
 
   try {
     await cloudinary.uploader.destroy(public_id, {});
+
+    return new Response();
   } catch (e: any) {
     console.log(e);
     const message = findErrorMessage(e);
