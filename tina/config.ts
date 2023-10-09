@@ -25,9 +25,9 @@ export default defineConfig({
     publicFolder: "public",
   },
   media: {
-    tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+    loadCustomStore: async () => {
+      const pack = await import("./cloudinary/TinaCloudCloudinaryMediaStore");
+      return pack.TinaCloudCloudinaryMediaStore;
     },
   },
   schema: {
