@@ -8,7 +8,6 @@ export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINACMS_CLIENTID,
   token: process.env.TINACMS_TOKEN,
-  localContentPath: "../../portfolio-contents",
   admin: {
     auth: {
       onLogin: async ({ token }) => {
