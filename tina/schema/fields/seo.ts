@@ -10,5 +10,10 @@ export const SEOField: TinaField<false> = {
       name: "title",
       type: "string",
     },
+    {
+      label: "Description",
+      name: "description",
+      type: "string",
+    },
   ],
 };
