@@ -15,7 +15,7 @@ export default defineConfig({
         location.href = `/api/preview/enter?token=${token.id_token}&slug=${location.pathname}`;
       },
       onLogout: async () => {
-        location.href = "/api/preview/exit";
+        location.href = `/api/preview/exit?slug=${location.pathname}`;
       },
     },
   },
