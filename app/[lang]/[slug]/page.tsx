@@ -1,5 +1,5 @@
+import PageTemplate from "./pageTemplate";
 import PagePreview from "./preview";
-import PageTemplate from "./template";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
