@@ -1,4 +1,5 @@
 import client from "@/tina/__generated__/client";
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 type Props = {
@@ -31,4 +32,24 @@ export default async function Projects({ params }: Props) {
       </ul>
     </section>
   );
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  let description = "";
+  switch (params.lang) {
+    case "ja":
+      description = "今まで手がけたプロジェクトの一覧";
+      break;
+    case "en":
+      description = "List of projects I've worked on";
+      break;
+  }
+
+  return {
+    title: "Projects",
+    description,
+  };
 }
