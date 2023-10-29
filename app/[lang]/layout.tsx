@@ -23,7 +23,7 @@ export default function RootLayout({ children, params }: Props) {
               xl:mx-auto xl:max-w-screen-lg xl:px-0
             "
           >
-            <Header />
+            <Header lang={params.lang} />
             <article
               className="
                 grid w-full grid-cols-12 gap-1
