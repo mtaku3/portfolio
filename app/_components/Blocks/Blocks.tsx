@@ -1,14 +1,18 @@
 import ListBlock from "./_components/ListBlock/ListBlock";
 import ProfileBlock from "./_components/ProfileBlock";
+import ProjectsListBlock from "./_components/ProjectsListBlock";
 import SelfIntroductionBlock from "./_components/SelfIntroductionBlock";
 import TimelineBlock from "./_components/TimelineBlock";
 import { PageBlocks } from "@/tina/__generated__/types";
 
 type Props = {
+  params: {
+    lang: string;
+  };
   blocks: PageBlocks[];
 };
 
-export default function Blocks({ blocks }: Props) {
+export default function Blocks({ params, blocks }: Props) {
   return (
     <>
       {blocks.map((block, idx) => {
@@ -21,6 +25,8 @@ export default function Blocks({ blocks }: Props) {
             return <TimelineBlock key={idx} data={block} />;
           case "PageBlocksList":
             return <ListBlock key={idx} data={block} />;
+          case "PageBlocksProjectsList":
+            return <ProjectsListBlock key={idx} params={params} data={block} />;
           default:
             return <div key={idx}>Nothing to be rendered for this block</div>;
         }

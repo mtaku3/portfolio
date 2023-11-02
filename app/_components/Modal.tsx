@@ -21,6 +21,10 @@ export default function Modal({ isOpen, close, children }: Props) {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
   }, [isOpen]);
 
   function handleClose(e: any) {

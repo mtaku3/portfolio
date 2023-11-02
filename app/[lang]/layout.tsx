@@ -8,9 +8,10 @@ type Props = {
   params: {
     lang: string;
   };
+  modal: React.ReactNode;
 };
 
-export default function RootLayout({ children, params }: Props) {
+export default function RootLayout({ children, params, modal }: Props) {
   return (
     <html lang={params.lang}>
       <body>
@@ -32,6 +33,7 @@ export default function RootLayout({ children, params }: Props) {
               "
             >
               {children}
+              {modal}
             </article>
             <Footer />
           </main>

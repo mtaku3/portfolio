@@ -26,9 +26,9 @@ export default async function Page({ params }: Props) {
   });
 
   if (isEnabled) {
-    return <PagePreview {...tinaData} />;
+    return <PagePreview params={params} {...tinaData} />;
   } else {
-    return <PageTemplate {...tinaData} />;
+    return <PageTemplate params={params} {...tinaData} />;
   }
 }
 
