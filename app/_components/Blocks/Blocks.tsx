@@ -3,13 +3,13 @@ import ProfileBlock from "./_components/ProfileBlock";
 import ProjectsListBlock from "./_components/ProjectsListBlock";
 import SelfIntroductionBlock from "./_components/SelfIntroductionBlock";
 import TimelineBlock from "./_components/TimelineBlock";
-import { PageBlocks } from "@/tina/__generated__/types";
+import { PageBlocks, PageQuery } from "@/tina/__generated__/types";
 
 type Props = {
   params: {
     lang: string;
   };
-  blocks: PageBlocks[];
+  blocks: PageQuery["page"]["blocks"];
 };
 
 export default function Blocks({ params, blocks }: Props) {

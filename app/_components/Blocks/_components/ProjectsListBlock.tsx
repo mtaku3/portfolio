@@ -1,11 +1,14 @@
-import { PageBlocksProjectsList } from "@/tina/__generated__/types";
+import { PageBlocksProjectsList, PageQuery } from "@/tina/__generated__/types";
 import Link from "next/link";
 
 type Props = {
   params: {
     lang: string;
   };
-  data: PageBlocksProjectsList;
+  data: Extract<
+    PageQuery["page"]["blocks"][0],
+    { __typename: "PageBlocksProjectsList" }
+  >;
 };
 
 export default function ProjectsListBlock({ params, data }: Props) {
