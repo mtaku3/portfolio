@@ -14,7 +14,7 @@ export default function PreviewModal({ children }: Props) {
 
   return (
     <Modal isOpen={true} close={close}>
-      <div className="h-full w-full bg-noise-white p-8 dark:bg-noise-dark md:h-auto md:w-[640px] md:rounded-md md:border md:border-gray-300 md:dark:border-gray-800">
+      <div className="h-full overflow-y-scroll bg-noise-white p-8 dark:bg-noise-dark md:h-auto md:max-h-[90%] md:w-[640px] md:rounded-md md:border md:border-gray-300 md:dark:border-gray-800 lg:w-[768px] xl:w-[1024px]">
         <div className="mb-8 space-y-4 md:hidden">
           <button onClick={close}>
             <X className="h-6 w-6" />
