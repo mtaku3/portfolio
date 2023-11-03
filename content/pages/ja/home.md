@@ -18,6 +18,11 @@ blocks:
       - date: 2019年4月 - 現在
         title: 鹿児島工業高等専門学校 情報工学科
     _template: timeline
+  - titleForList: プロジェクト
+    items:
+      - project: content/projects/ja/mtaku3-dot-com.md
+      - project: content/projects/ja/automuteus-portable.md
+    _template: projectsList
   - titleForList: スタック／フレームワーク
     items:
       - name: React
@@ -46,4 +51,5 @@ blocks:
     numOfItemsToShow: 0
     _template: list
 ---
+
 
