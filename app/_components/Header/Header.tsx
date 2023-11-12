@@ -24,6 +24,12 @@ export default function Header({ lang }: Props = {}) {
         >
           Projects
         </Link>
+        <Link
+          href={lang ? `/${lang}/blog` : "/blog"}
+          className="font-semibold text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-white md:text-lg"
+        >
+          Blog
+        </Link>
       </div>
       <div className="space-x-2">
         {/* <button className="rounded-md p-1 transition hover:bg-slate-100 dark:hover:bg-slate-600">

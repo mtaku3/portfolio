@@ -23,7 +23,7 @@ export default function PreviewModal({ children }: Props) {
     <Modal isOpen={true} close={close}>
       <div
         className={clsx(
-          "h-full overflow-y-scroll bg-noise-white p-8 dark:bg-noise-dark",
+          "h-full w-full overflow-y-scroll bg-noise-white p-8 dark:bg-noise-dark",
           isMinimized && minimizedStyle,
         )}
       >

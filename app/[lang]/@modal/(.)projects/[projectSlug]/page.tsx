@@ -1,4 +1,4 @@
-import PreviewModal from "./modal";
+import PreviewModal from "../../PreviewModal";
 import ProjectTemplate from "@/app/[lang]/projects/[slug]/projectTemplate";
 import client from "@/tina/__generated__/client";
 

@@ -1,4 +1,8 @@
-import { PageCollection, ProjectCollection } from "./schema/collections";
+import {
+  BlogPostCollection,
+  PageCollection,
+  ProjectCollection,
+} from "./schema/collections";
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
@@ -30,6 +34,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [PageCollection, ProjectCollection],
+    collections: [PageCollection, ProjectCollection, BlogPostCollection],
   },
 });
