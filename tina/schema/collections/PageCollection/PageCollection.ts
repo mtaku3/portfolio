@@ -2,6 +2,7 @@ import { SEOField } from "../../fields";
 import { ListTemplate } from "./blocks/List";
 import { ProfileTemplate } from "./blocks/Profile";
 import { ProjectsListTemplate } from "./blocks/ProjectsList";
+import { RecentBlogPostsListTemplate } from "./blocks/RecentBlogPostsList";
 import { SelfIntroductionTemplate } from "./blocks/SelfIntroduction";
 import { TimelineTemplate } from "./blocks/Timeline";
 import type { Collection } from "tinacms";
@@ -34,6 +35,7 @@ export const PageCollection: Collection = {
         TimelineTemplate,
         ListTemplate,
         ProjectsListTemplate,
+        RecentBlogPostsListTemplate,
         ProfileTemplate,
         SelfIntroductionTemplate,
       ],

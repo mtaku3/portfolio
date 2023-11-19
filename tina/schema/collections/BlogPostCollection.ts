@@ -11,6 +11,18 @@ export const BlogPostCollection: Collection = {
       let filename = document._sys.filename;
       return `/${lang}/blog/${filename}`;
     },
+    beforeSubmit: async ({ form, cms, values }) => {
+      let res = { ...values };
+      if (form.crudType === "create") {
+        res = Object.assign(res, {
+          createdAt: new Date().toISOString(),
+        });
+      }
+      res = Object.assign(res, {
+        updatedAt: new Date().toISOString(),
+      });
+      return res;
+    },
   },
   fields: [
     SEOField,
@@ -37,6 +49,16 @@ export const BlogPostCollection: Collection = {
         component: "textarea",
       },
       required: true,
+    },
+    {
+      label: "Created At",
+      name: "createdAt",
+      type: "datetime",
+    },
+    {
+      label: "Updated At",
+      name: "updatedAt",
+      type: "datetime",
     },
   ],
 };

@@ -1,8 +1,9 @@
 import Blocks from "@/app/_components/Blocks";
+import { PreviewParams } from "@/app/_lib/PreviewParams";
 import { PageQuery, PageQueryVariables } from "@/tina/__generated__/types";
 
 type Props = {
-  params: {
+  params: PreviewParams & {
     lang: string;
   };
   data: PageQuery;

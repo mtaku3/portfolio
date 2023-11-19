@@ -1,8 +1,9 @@
+import { PreviewParams } from "@/app/_lib/PreviewParams";
 import { PageBlocksProjectsList, PageQuery } from "@/tina/__generated__/types";
 import Link from "next/link";
 
 type Props = {
-  params: {
+  params: PreviewParams & {
     lang: string;
   };
   data: Extract<

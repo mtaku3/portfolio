@@ -13,7 +13,7 @@ export default async function BlogPosts({ params }: Props) {
   const blogPosts =
     blogPostsResponse.data.blogPostConnection.edges
       ?.map((post) => post?.node)
-      .filter((v): v is Exclude<typeof v, undefined | null> => !!v) ?? [];
+      .filter((v): v is NonNullable<typeof v> => !!v) ?? [];
 
   return (
     <section className="col-span-full">

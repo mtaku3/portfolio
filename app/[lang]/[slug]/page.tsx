@@ -14,6 +14,11 @@ type Props = {
 export default async function Page({ params }: Props) {
   const { isEnabled } = draftMode();
 
+  const pageParams = {
+    ...params,
+    isPreview: isEnabled,
+  };
+
   let relativePath = "";
   if (params.slug === undefined) {
     relativePath = `${params.lang}/home.md`;
@@ -26,9 +31,9 @@ export default async function Page({ params }: Props) {
   });
 
   if (isEnabled) {
-    return <PagePreview params={params} {...tinaData} />;
+    return <PagePreview params={pageParams} {...tinaData} />;
   } else {
-    return <PageTemplate params={params} {...tinaData} />;
+    return <PageTemplate params={pageParams} {...tinaData} />;
   }
 }
 
