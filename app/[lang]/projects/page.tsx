@@ -13,7 +13,10 @@ export default async function Projects({ params }: Props) {
   const projects =
     projectsResponse.data.projectConnection.edges
       ?.map((project) => project?.node)
-      .filter((v): v is NonNullable<typeof v> => !!v) ?? [];
+      .filter(
+        (v): v is NonNullable<typeof v> =>
+          !!v && v._sys.relativePath.startsWith(params.lang),
+      ) ?? [];
 
   return (
     <section className="col-span-full">

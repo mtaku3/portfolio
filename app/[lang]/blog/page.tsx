@@ -13,7 +13,10 @@ export default async function BlogPosts({ params }: Props) {
   const blogPosts =
     blogPostsResponse.data.blogPostConnection.edges
       ?.map((post) => post?.node)
-      .filter((v): v is NonNullable<typeof v> => !!v) ?? [];
+      .filter(
+        (v): v is NonNullable<typeof v> =>
+          !!v && v._sys.relativePath.startsWith(params.lang),
+      ) ?? [];
 
   return (
     <section className="col-span-full">
