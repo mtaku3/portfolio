@@ -11,7 +11,7 @@ export default function Header({ lang }: Props = {}) {
   // TODO: Implement RSS feed
   return (
     <header className="col-span-full my-4 flex items-center space-x-2">
-      <div className="mx-auto space-x-2">
+      <div className="mx-auto space-x-6">
         <Link
           href={lang ? `/${lang}` : "/"}
           className="font-semibold text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-white md:text-lg"
