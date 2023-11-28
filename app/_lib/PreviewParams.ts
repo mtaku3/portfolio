@@ -1,3 +1,3 @@
 export type PreviewParams = {
-  isPreview: boolean;
+	isPreview: boolean;
 };
