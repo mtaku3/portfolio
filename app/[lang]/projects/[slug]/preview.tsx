@@ -1,20 +1,20 @@
 "use client";
 
+import ProjectTemplate from "./projectTemplate";
 import {
-	ProjectQuery,
-	ProjectQueryVariables,
+  ProjectQuery,
+  ProjectQueryVariables,
 } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
-import ProjectTemplate from "./projectTemplate";
 
 type Props = {
-	data: ProjectQuery;
-	variables: ProjectQueryVariables;
-	query: string;
+  data: ProjectQuery;
+  variables: ProjectQueryVariables;
+  query: string;
 };
 
 export default function ProjectPreview(tinaData: Props) {
-	const { data } = useTina(tinaData);
+  const { data } = useTina(tinaData);
 
-	return <ProjectTemplate data={data} />;
+  return <ProjectTemplate data={data} />;
 }

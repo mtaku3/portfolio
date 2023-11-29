@@ -3,27 +3,27 @@ import { locales } from "@/locales";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: {
-		template: "%s | mtaku3's Portfolio",
-		default: "mtaku3's Portfolio",
-	},
-	alternates: {
-		canonical: "/",
-		languages: locales.reduce(
-			(acc, locale) => Object.assign(acc, { [locale]: `/${locale}` }),
-			{},
-		),
-	},
+  title: {
+    template: "%s | mtaku3's Portfolio",
+    default: "mtaku3's Portfolio",
+  },
+  alternates: {
+    canonical: "/",
+    languages: locales.reduce(
+      (acc, locale) => Object.assign(acc, { [locale]: `/${locale}` }),
+      {},
+    ),
+  },
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<html lang="ja">
-			<body>{children}</body>
-		</html>
-	);
+  return (
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
+  );
 }

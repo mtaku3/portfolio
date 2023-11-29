@@ -3,13 +3,13 @@ import SimpleListItem from "./SimpleListItem";
 import { PageBlocksListItems } from "@/tina/__generated__/types";
 
 type Props = {
-	item: PageBlocksListItems;
+  item: PageBlocksListItems;
 };
 
 export default function ListItem({ item }: Props) {
-	return item.description ? (
-		<DetailedListItem item={item} />
-	) : (
-		<SimpleListItem item={item} />
-	);
+  return item.description ? (
+    <DetailedListItem item={item} />
+  ) : (
+    <SimpleListItem item={item} />
+  );
 }

@@ -58,26 +58,26 @@
 
     ol ol,
     ul ol {
-      @apply list-roman ml-8;
+      @apply ml-8 list-roman;
     }
 
     ol ul,
     ul ul {
-      @apply list-circle ml-8;
+      @apply ml-8 list-circle;
     }
 
     ol ol ol,
     ol ul ol,
     ul ol ol,
     ul ul ol {
-      @apply list-alpha ml-8;
+      @apply ml-8 list-alpha;
     }
 
     ol ol ul,
     ol ul ul,
     ul ol ul,
     ul ul ul {
-      @apply list-square ml-8;
+      @apply ml-8 list-square;
     }
 
     blockquote {

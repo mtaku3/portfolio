@@ -5,48 +5,48 @@ import { Metadata } from "next";
 import { draftMode } from "next/headers";
 
 type Props = {
-	params: {
-		lang: string;
-		slug: string;
-	};
+  params: {
+    lang: string;
+    slug: string;
+  };
 };
 
 export default async function BlogPost({ params }: Props) {
-	const { isEnabled } = draftMode();
+  const { isEnabled } = draftMode();
 
-	const tinaData = await client.queries.blogPost({
-		relativePath: `${params.lang}/${params.slug}.md`,
-	});
+  const tinaData = await client.queries.blogPost({
+    relativePath: `${params.lang}/${params.slug}.md`,
+  });
 
-	if (isEnabled) {
-		return <BlogPostPreview {...tinaData} />;
-	} else {
-		return <BlogPostTemplate {...tinaData} />;
-	}
+  if (isEnabled) {
+    return <BlogPostPreview {...tinaData} />;
+  } else {
+    return <BlogPostTemplate {...tinaData} />;
+  }
 }
 
 export async function generateStaticParams() {
-	const blogPostsResponse = await client.queries.blogPostConnection();
-	const blogPosts =
-		blogPostsResponse.data.blogPostConnection.edges?.map((post) => {
-			const lang = post?.node?._sys.relativePath?.split("/")[0];
-			const slug = post?.node?._sys.filename;
+  const blogPostsResponse = await client.queries.blogPostConnection();
+  const blogPosts =
+    blogPostsResponse.data.blogPostConnection.edges?.map((post) => {
+      const lang = post?.node?._sys.relativePath?.split("/")[0];
+      const slug = post?.node?._sys.filename;
 
-			return {
-				lang,
-				slug,
-			};
-		}) ?? [];
-	return blogPosts;
+      return {
+        lang,
+        slug,
+      };
+    }) ?? [];
+  return blogPosts;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const project = await client.queries.blogPost({
-		relativePath: `${params.lang}/${params.slug}.md`,
-	});
+  const project = await client.queries.blogPost({
+    relativePath: `${params.lang}/${params.slug}.md`,
+  });
 
-	return {
-		title: project.data.blogPost.seo?.title,
-		description: project.data.blogPost.seo?.description,
-	};
+  return {
+    title: project.data.blogPost.seo?.title,
+    description: project.data.blogPost.seo?.description,
+  };
 }

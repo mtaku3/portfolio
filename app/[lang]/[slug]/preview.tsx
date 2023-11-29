@@ -6,16 +6,16 @@ import { PageQuery, PageQueryVariables } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 
 type Props = {
-	params: PreviewParams & {
-		lang: string;
-	};
-	data: PageQuery;
-	variables: PageQueryVariables;
-	query: string;
+  params: PreviewParams & {
+    lang: string;
+  };
+  data: PageQuery;
+  variables: PageQueryVariables;
+  query: string;
 };
 
 export default function PagePreview({ params, ...tinaData }: Props) {
-	const { data } = useTina(tinaData);
+  const { data } = useTina(tinaData);
 
-	return <Blocks params={params} blocks={data.page.blocks} />;
+  return <Blocks params={params} blocks={data.page.blocks} />;
 }
