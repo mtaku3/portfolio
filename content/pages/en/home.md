@@ -32,6 +32,11 @@ blocks:
           National Institute of Technology, Kagoshima College, Department of
           Information Engineering
     _template: timeline
+  - titleForList: Side Projects
+    items:
+      - project: content/projects/en/mtaku3-dot-com.md
+      - project: content/projects/en/automuteus-portable.md
+    _template: projectsList
   - titleForList: Tech Stacks
     items:
       - name: React
