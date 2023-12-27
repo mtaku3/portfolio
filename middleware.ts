@@ -28,6 +28,9 @@ export function middleware(request: NextRequest) {
   // Check if the incoming request is an Sitemap
   if (pathname === "/sitemap.xml") return;
 
+  // Check if the incoming request is an robots.txt
+  if (pathname === "/robots.txt") return;
+
   // Check if there is any supported locale in the pathname
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
