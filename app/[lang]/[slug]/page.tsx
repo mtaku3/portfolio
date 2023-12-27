@@ -3,6 +3,7 @@ import PagePreview from "./preview";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -26,14 +27,23 @@ export default async function Page({ params }: Props) {
     relativePath = `${params.lang}/${params.slug}.md`;
   }
 
-  const tinaData = await client.queries.page({
-    relativePath,
-  });
+  try {
+    const tinaData = await client.queries.page({
+      relativePath,
+    });
 
-  if (isEnabled) {
-    return <PagePreview params={pageParams} {...tinaData} />;
-  } else {
-    return <PageTemplate params={pageParams} {...tinaData} />;
+    if (isEnabled) {
+      return <PagePreview params={pageParams} {...tinaData} />;
+    } else {
+      return <PageTemplate params={pageParams} {...tinaData} />;
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(e);
+      return notFound();
+    } else {
+      throw e;
+    }
   }
 }
 
@@ -64,12 +74,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     relativePath = `${params.lang}/${params.slug}.md`;
   }
 
-  const page = await client.queries.page({
-    relativePath,
-  });
+  try {
+    const page = await client.queries.page({
+      relativePath,
+    });
 
-  return {
-    title: page.data.page.seo?.title,
-    description: page.data.page.seo?.description,
-  };
+    return {
+      title: page.data.page.seo?.title,
+      description: page.data.page.seo?.description,
+    };
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(e);
+      return {};
+    } else {
+      throw e;
+    }
+  }
 }

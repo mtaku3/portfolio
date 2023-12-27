@@ -3,6 +3,7 @@ import BlogPostPreview from "./preview";
 import client from "@/tina/__generated__/client";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -14,14 +15,23 @@ type Props = {
 export default async function BlogPost({ params }: Props) {
   const { isEnabled } = draftMode();
 
-  const tinaData = await client.queries.blogPost({
-    relativePath: `${params.lang}/${params.slug}.md`,
-  });
+  try {
+    const tinaData = await client.queries.blogPost({
+      relativePath: `${params.lang}/${params.slug}.md`,
+    });
 
-  if (isEnabled) {
-    return <BlogPostPreview {...tinaData} />;
-  } else {
-    return <BlogPostTemplate {...tinaData} />;
+    if (isEnabled) {
+      return <BlogPostPreview {...tinaData} />;
+    } else {
+      return <BlogPostTemplate {...tinaData} />;
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(e);
+      return notFound();
+    } else {
+      throw e;
+    }
   }
 }
 
@@ -41,12 +51,21 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = await client.queries.blogPost({
-    relativePath: `${params.lang}/${params.slug}.md`,
-  });
+  try {
+    const project = await client.queries.blogPost({
+      relativePath: `${params.lang}/${params.slug}.md`,
+    });
 
-  return {
-    title: project.data.blogPost.seo?.title,
-    description: project.data.blogPost.seo?.description,
-  };
+    return {
+      title: project.data.blogPost.seo?.title,
+      description: project.data.blogPost.seo?.description,
+    };
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(e);
+      return {};
+    } else {
+      throw e;
+    }
+  }
 }
