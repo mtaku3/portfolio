@@ -15,6 +15,8 @@ blocks:
       私自身がモダンなフレームワークや新しい技術が好きなので、新しい物を積極的に取り入れている企業での学生アルバイト／インターンを探しています。
     _template: selfIntroduction
   - events:
+      - date: 2024年4月 - 現在
+        title: 東京工業大学 情報理工学院 情報工学系
       - date: 2019年4月 - 2024年3月
         title: 鹿児島工業高等専門学校 情報工学科
     _template: timeline
