@@ -27,6 +27,10 @@ blocks:
       student internship where I can further develop my skills.
     _template: selfIntroduction
   - events:
+      - date: April 2024 - Present
+        title: >-
+          Tokyo Institute of Technology, School of Computing, Department of
+          Computer Science
       - date: April 2019 - March 2024
         title: >-
           National Institute of Technology, Kagoshima College, Department of
