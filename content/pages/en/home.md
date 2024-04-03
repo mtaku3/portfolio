@@ -27,7 +27,7 @@ blocks:
       student internship where I can further develop my skills.
     _template: selfIntroduction
   - events:
-      - date: April 2019 - Present
+      - date: April 2019 - March 2024
         title: >-
           National Institute of Technology, Kagoshima College, Department of
           Information Engineering
