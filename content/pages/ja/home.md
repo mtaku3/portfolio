@@ -22,6 +22,14 @@ blocks:
       ・サイドプロジェクトAMUPのりライト（Rustで非同期が使えるプラグインシステムのPoC中）
       をしています。（知見あれば是非教えていただきたい。）
     _template: selfIntroduction
+  - titleForTimeline: 職歴
+    events:
+      - date: 2023年12月 - 現在
+        title: TRUSTART株式会社 システム開発部 長期インターン
+        description: >-
+          インタビュー記事書いていただきました！
+          https://www.wantedly.com/companies/trustart/post_articles/884954
+    _template: timeline
   - titleForTimeline: 学歴
     events:
       - date: 2024年4月 - 現在
