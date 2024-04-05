@@ -42,9 +42,6 @@ blocks:
       with Rust).
 
       Please teach me ;;
-
-
-      Translated with DeepL.com (free version)
     _template: selfIntroduction
   - titleForTimeline: Work
     events:
