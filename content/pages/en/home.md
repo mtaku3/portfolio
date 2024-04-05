@@ -6,25 +6,45 @@ blocks:
     image: >-
       https://res.cloudinary.com/dxqbtsvkr/image/upload/v1696860652/mtaku3_ve4i4t.webp
     _template: profile
-  - motd: Coding Purposeful Things
+  - motd: あージンセーいそがし
     introduction: >-
-      I am currently a student at the National Institute of Technology,
-      Kagoshima College, studying Information Engineering and this is my final
-      year (5th).
+      This spring, I transferred from a KOSEN to Tokyo Institute of Technology,
+      Department of Computer Science for my third year.
 
-      For my graduation thesis, I am conducting research related to neural
-      networks.
+      At the KOSEN, I researched on the optimization of coefficients for model
+      patching in deep learning.
 
-      I am interested in programming, deep learning, web app development, and
-      reverse engineering. 
+      At the university, I would like to do research related to large language
+      models (LLM).
+
+      My hobbies are listening to music, programming, and studying pure
+      mathematics.
+
+      My goals for the time being are
+
+      - To deepen my understanding of AI, not only LLMs, but also from a
+      mathematical background.
+
+      - To polish up my programming skills by learning many languages,
+      frameworks, and implementation patterns, and eventually make a living as a
+      freelance.
+
+      I am currently an intern at TRUSTART Co.
+
+      Currently, I am writing code as an intern at TRUSTART and also doing some
+      side projects.
+
+      My coding as a hobby is currently
+
+      - Migration from Arch Linux to NixOS
+
+      - Working on a side project, AMUP (doing PoC of asynchronous plugin system
+      with Rust).
+
+      Please teach me ;;
 
 
-      My plan is to attend a university in Japan and continue studying neural
-      networks, while also learning about app development in a business setting.
-
-      I am passionate about using modern frameworks and state-of-the-art
-      technologies, and as such, I am actively seeking a part-time job or a
-      student internship where I can further develop my skills.
+      Translated with DeepL.com (free version)
     _template: selfIntroduction
   - events:
       - date: April 2024 - Present
