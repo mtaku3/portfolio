@@ -29,7 +29,7 @@ blocks:
       frameworks, and implementation patterns, and eventually make a living as a
       freelance.
 
-      I am currently an intern at TRUSTART Co.
+      I am currently an intern at TRUSTART, Inc.
 
       Currently, I am writing code as an intern at TRUSTART and also doing some
       side projects.
@@ -46,7 +46,16 @@ blocks:
 
       Translated with DeepL.com (free version)
     _template: selfIntroduction
-  - events:
+  - titleForTimeline: Work
+    events:
+      - date: December 2023 - Present
+        title: 'TRUSTART, Inc., System Development Team, long-term internship'
+        description: >-
+          Interview article published!
+          https://www.wantedly.com/companies/trustart/post_articles/884954
+    _template: timeline
+  - titleForTimeline: Study
+    events:
       - date: April 2024 - Present
         title: >-
           Tokyo Institute of Technology, School of Computing, Department of
