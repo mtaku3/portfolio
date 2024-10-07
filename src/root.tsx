@@ -23,7 +23,7 @@ export default component$(() => {
         <meta charset="utf-8" />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body lang="ja">
         <RouterOutlet />
         {!isDev && <ServiceWorkerRegister />}
       </body>
