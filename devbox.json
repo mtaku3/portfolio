@@ -8,6 +8,7 @@
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null",
+      "bun add -g @tailwindcss/language-server",
       "export PATH=\"/home/mtaku3/.bun/bin:$PATH\""
     ],
     "scripts": {
