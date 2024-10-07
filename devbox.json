@@ -7,7 +7,8 @@
   ],
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "echo 'Welcome to devbox!' > /dev/null",
+      "export PATH=\"/home/mtaku3/.bun/bin:$PATH\""
     ],
     "scripts": {
       "test": [
