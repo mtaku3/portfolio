@@ -3,7 +3,8 @@
   "packages": [
     "nodePackages.typescript-language-server@latest",
     "nodejs@20",
-    "bun@latest"
+    "bun@latest",
+    "prettierd@latest"
   ],
   "shell": {
     "init_hook": [
@@ -12,9 +13,7 @@
       "export PATH=\"/home/mtaku3/.bun/bin:$PATH\""
     ],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
+      "test": ["echo \"Error: no test specified\" && exit 1"]
     }
   }
 }
