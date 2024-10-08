@@ -22,7 +22,11 @@ export default component$(() => {
 
 const MyIcon = component$(() => {
   return (
-    <img src="/images/mtaku3.webp" alt="mtaku3's icon" class="w-8/12 max-w-72 aspect-square rounded-full md:w-64" />
+    <img
+      src="/images/mtaku3.webp"
+      alt="mtaku3's icon"
+      class="w-8/12 max-w-72 aspect-square rounded-full md:w-64"
+    />
   );
 });
 
@@ -56,11 +60,19 @@ const Biography = component$(() => {
 const Links = component$(() => {
   return (
     <div class="flex gap-4 md:flex-col flex-wrap">
-      <a href="https://x.com/oRqSXxv8GeDK" target="_blank" class="px-4 py-2 flex gap-4 rounded-md bg-black text-white items-center border-2 border-gray-400 hover:cursor-pointer hover:border-gray-300 w-full justify-center">
+      <a
+        href="https://x.com/oRqSXxv8GeDK"
+        target="_blank"
+        class="px-4 py-2 flex gap-4 rounded-md bg-black text-white items-center border-2 border-gray-400 hover:cursor-pointer hover:border-gray-300 w-full justify-center"
+      >
         <SiX />
         <span class="leading-none font-inter font-semibold">X (旧Twitter)</span>
       </a>
-      <a href="https://github.com/mtaku3" target="_blank" class="px-4 py-2 flex gap-4 rounded-md bg-[#181717] text-white items-center border-2 border-gray-400 hover:cursor-pointer hover:border-gray-300 w-full justify-center">
+      <a
+        href="https://github.com/mtaku3"
+        target="_blank"
+        class="px-4 py-2 flex gap-4 rounded-md bg-[#181717] text-white items-center border-2 border-gray-400 hover:cursor-pointer hover:border-gray-300 w-full justify-center"
+      >
         <SiGithub />
         <span class="leading-none font-inter font-semibold">GitHub</span>
       </a>
@@ -111,21 +123,33 @@ const Projects = component$(() => {
     <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">プロジェクト</h3>
       <div class="flex flex-col gap-4 w-full">
-        <a href="https://github.com/mtaku3/portfolio" target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2">
+        <a
+          href="https://github.com/mtaku3/portfolio"
+          target="_blank"
+          class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2"
+        >
           <div class="font-medium text-lg">mtaku3.com</div>
           <p class="font-light">
             このポートフォリオサイト <br />
             定期的に更新 & リニューアル
           </p>
         </a>
-        <a href="https://github.com/mtaku3/automuteus-portable" target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2 font-medium">
+        <a
+          href="https://github.com/mtaku3/automuteus-portable"
+          target="_blank"
+          class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2 font-medium"
+        >
           <div class="font-medium text-lg">AutoMuteUs Portable</div>
           <p class="font-light">
             AutoMuteUs というサーバーを実行するための Docker 代替ソフト <br />
             現在メンテナンス外, リプレイス予定有
           </p>
         </a>
-        <a href="https://github.com/mtaku3/capybara-online-judge" target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2 font-medium">
+        <a
+          href="https://github.com/mtaku3/capybara-online-judge"
+          target="_blank"
+          class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2 font-medium"
+        >
           <div class="font-medium text-lg">Capybara Online Judge</div>
           <p class="font-light">
             高専時代に授業でチーム開発したオンラインジャッジシステム <br />
@@ -144,11 +168,16 @@ const Articles = component$(() => {
     <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">記事</h3>
       <div class="flex flex-col gap-4 w-full">
-      {signal.value.map((article, idx) => (
-        <a key={idx} href={article.url} target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2">
-          <div class="font-medium text-lg">{article.title}</div>
-        </a>
-      ))}
+        {signal.value.map((article, idx) => (
+          <a
+            key={idx}
+            href={article.url}
+            target="_blank"
+            class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2"
+          >
+            <div class="font-medium text-lg">{article.title}</div>
+          </a>
+        ))}
       </div>
     </div>
   );
@@ -159,10 +188,17 @@ const Music = component$(() => {
   return (
     <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">おすすめの曲</h3>
-      <p>
-        最近聴いてるおすすめの曲を不定期で更新してます。
-      </p>
-      <iframe height="175" width="100%" title="Media player" src="https://embed.music.apple.com/jp/album/rebirth/1609933481?i=1609933491&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1609933491&amp;theme=light" id="embedPlayer" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 650px;"></iframe>
+      <p>最近聴いてるおすすめの曲を不定期で更新してます。</p>
+      <iframe
+        height="175"
+        width="100%"
+        title="Media player"
+        src="https://embed.music.apple.com/jp/album/rebirth/1609933481?i=1609933491&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1609933491&amp;theme=light"
+        id="embedPlayer"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        allow="autoplay *; encrypted-media *; clipboard-write"
+        style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 650px;"
+      ></iframe>
     </div>
   );
 });
@@ -173,7 +209,7 @@ interface ZennApiArticle {
     title: string;
     path: string;
     published_at: string;
-  }[]
+  }[];
 }
 
 interface Article {
@@ -185,14 +221,16 @@ interface Article {
 export const useArticles = routeLoader$(() => {
   return fetch("https://zenn.dev/api/articles?username=mtaku3")
     .then((res) => res.json() as Promise<ZennApiArticle>)
-    .then((res) => 
-      res.articles.map<Article>((article) => {
-        return {
-          title: article.title,
-          url: `https://zenn.dev${article.path}`,
-          publishedAt: new Date(article.published_at),
-        };
-      }).sort((a, b) => a.publishedAt.getTime() - b.publishedAt.getTime())
+    .then((res) =>
+      res.articles
+        .map<Article>((article) => {
+          return {
+            title: article.title,
+            url: `https://zenn.dev${article.path}`,
+            publishedAt: new Date(article.published_at),
+          };
+        })
+        .sort((a, b) => a.publishedAt.getTime() - b.publishedAt.getTime()),
     );
 });
 
