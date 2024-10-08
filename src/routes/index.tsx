@@ -2,9 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { SiX, SiGithub } from "@qwikest/icons/simpleicons";
 
-    // <div class="mx-auto w-11/12 max-w-[400px] md:w-[720px] md:max-w-none lg:w-[768px]">
-    //   <Slot />
-    // </div>
 export default component$(() => {
   return (
     <div class="flex flex-col w-full gap-8 my-10 items-center">
@@ -17,6 +14,7 @@ export default component$(() => {
         <AboutMe />
         <Projects />
         <Articles />
+        <Music />
       </div>
     </div>
   );
@@ -152,6 +150,19 @@ const Articles = component$(() => {
         </a>
       ))}
       </div>
+    </div>
+  );
+});
+
+// https://toolbox.marketingtools.apple.com/en-us/apple-music/jp
+const Music = component$(() => {
+  return (
+    <div class="flex flex-col gap-2 items-center w-full">
+      <h3 class="text-lg font-bold">おすすめの曲</h3>
+      <p>
+        最近聴いてるおすすめの曲を不定期で更新してます。
+      </p>
+      <iframe height="175" width="100%" title="Media player" src="https://embed.music.apple.com/jp/album/rebirth/1609933481?i=1609933491&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1609933491&amp;theme=light" id="embedPlayer" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 650px;"></iframe>
     </div>
   );
 });
