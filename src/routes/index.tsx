@@ -2,17 +2,22 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { SiX, SiGithub } from "@qwikest/icons/simpleicons";
 
+    // <div class="mx-auto w-11/12 max-w-[400px] md:w-[720px] md:max-w-none lg:w-[768px]">
+    //   <Slot />
+    // </div>
 export default component$(() => {
   return (
-    <div class="flex flex-col w-full gap-8 my-10">
-      <div class="mx-auto flex flex-col items-center gap-4 md:flex-row">
+    <div class="flex flex-col w-full gap-8 my-10 items-center">
+      <div class="w-11/12 max-w-[400px] md:w-[720px] md:max-w-none lg:w-[768px] flex flex-col items-center gap-4 md:flex-row">
         <MyIcon />
         <Biography />
         <Links />
       </div>
-      <AboutMe />
-      <Projects />
-      <Articles />
+      <div class="w-11/12 max-w-[560px] flex flex-col items-center gap-4">
+        <AboutMe />
+        <Projects />
+        <Articles />
+      </div>
     </div>
   );
 });
@@ -67,9 +72,9 @@ const Links = component$(() => {
 
 const AboutMe = component$(() => {
   return (
-    <div class="flex flex-col gap-2 items-center">
+    <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">歴史</h3>
-      <div class="flex flex-col gap-2 w-fit">
+      <div class="flex flex-col gap-2 w-full">
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
           <span class="text-gray-800 leading-none">2019 - 2024</span>
           <span>鹿児島工業高等専門学校 情報工学科</span>
@@ -105,9 +110,9 @@ const Connector = component$(() => {
 
 const Projects = component$(() => {
   return (
-    <div class="flex flex-col gap-2 items-center">
+    <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">プロジェクト</h3>
-      <div class="flex flex-col gap-4 w-fit">
+      <div class="flex flex-col gap-4 w-full">
         <a href="https://github.com/mtaku3/portfolio" target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2">
           <div class="font-medium text-lg">mtaku3.com</div>
           <p class="font-light">
@@ -138,9 +143,9 @@ const Projects = component$(() => {
 const Articles = component$(() => {
   const signal = useArticles();
   return (
-    <div class="flex flex-col gap-2 items-center">
+    <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">記事</h3>
-      <div class="flex flex-col gap-4 w-fit">
+      <div class="flex flex-col gap-4 w-full">
       {signal.value.map((article, idx) => (
         <a key={idx} href={article.url} target="_blank" class="rounded-md border-2 border-gray-400 hover:border-gray-300 hover:text-gray-600 px-4 py-2">
           <div class="font-medium text-lg">{article.title}</div>

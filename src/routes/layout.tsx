@@ -13,9 +13,5 @@ import { component$, Slot } from "@builder.io/qwik";
 // };
 
 export default component$(() => {
-  return (
-    <div class="mx-auto w-11/12 max-w-[400px] md:w-[720px] md:max-w-none lg:w-[768px]">
-      <Slot />
-    </div>
-  );
+  return <Slot />;
 });
