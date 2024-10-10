@@ -5,6 +5,7 @@
     "@builder.io/qwik-city": "^1.9.1",
     "@qwikest/icons": "^0.0.13",
     "@types/eslint": "8.56.10",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "20.14.11",
     "autoprefixer": "^10.4.20",
     "husky": "^9.1.6",
@@ -45,6 +46,7 @@
   "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "type": "module",
   "dependencies": {
+    "jsonwebtoken": "^9.0.2",
     "simple-icons": "^13.13.0"
   }
 }

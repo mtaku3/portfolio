@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { SiX, SiGithub } from "@qwikest/icons/simpleicons";
+import jwt from "jsonwebtoken";
 
 export default component$(() => {
   return (
@@ -209,14 +210,21 @@ interface Article {
   publishedAt: Date;
 }
 
-export const useArticles = routeLoader$(() => {
-  return Promise.all([getZennArticles(), getNoteArticles()]).then(
-    ([zennArticles, noteArticles]) => {
-      return [...zennArticles, ...noteArticles].sort(
-        (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime(),
-      );
-    },
-  );
+export const useArticles = routeLoader$((requestEvent) => {
+  const TRAP_GHOST_API_KEY = requestEvent.env.get("TRAP_GHOST_API_KEY");
+  if (TRAP_GHOST_API_KEY == null) {
+    throw new Error("TRAP_GHOST_API_KEY is not set");
+  }
+
+  return Promise.all([
+    getZennArticles(),
+    getNoteArticles(),
+    getTrapArticles(TRAP_GHOST_API_KEY),
+  ]).then(([zennArticles, noteArticles, trapArticles]) => {
+    return [...zennArticles, ...noteArticles, ...trapArticles].sort(
+      (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime(),
+    );
+  });
 });
 
 interface ZennApiArticle {
@@ -277,7 +285,6 @@ const getNoteArticles = async () => {
       `https://note.com/api/v2/creators/mtaku3/contents?kind=note&page=${page}`,
     );
     const data = (await res.json()) as NoteApiArticle;
-    console.log(data);
     for (const article of data.data.contents) {
       articles.push({
         title: article.name,
@@ -292,6 +299,63 @@ const getNoteArticles = async () => {
     } else {
       break;
     }
+  }
+
+  return articles;
+};
+
+interface TrapGhostApiArticle {
+  posts: {
+    title: string;
+    url: string;
+    published_at: string;
+  }[];
+  meta: {
+    pagination: {
+      page: number;
+      next: number | null;
+      prev: number | null;
+    };
+  };
+}
+
+const ghostApiKey2Token = (apiKey: string) => {
+  const [id, secret] = apiKey.split(":");
+
+  return jwt.sign({}, Buffer.from(secret, "hex"), {
+    keyid: id,
+    algorithm: "HS256",
+    expiresIn: "5m",
+    audience: "/admin/",
+  });
+};
+
+const getTrapArticles = async (apiKey: string) => {
+  const searchParams = new URLSearchParams({
+    includes: "authors",
+    fields: "title,url,published_at",
+    filter: "authors.name:mtaku3+status:published+visibility:public",
+    limit: "all",
+    order: "published_at desc",
+  });
+  const apiUrl = new URL("https://blog-admin.trap.jp/ghost/api/admin/posts");
+  apiUrl.search = searchParams.toString();
+
+  const articles: Article[] = [];
+
+  const res = await fetch(apiUrl, {
+    headers: {
+      authorization: `Ghost ${ghostApiKey2Token(apiKey)}`,
+    },
+  });
+  const data = (await res.json()) as TrapGhostApiArticle;
+  console.log(data);
+  for (const article of data.posts) {
+    articles.push({
+      title: article.title,
+      url: article.url,
+      publishedAt: new Date(article.published_at),
+    });
   }
 
   return articles;
