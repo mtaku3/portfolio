@@ -203,15 +203,6 @@ const Music = component$(() => {
   );
 });
 
-interface ZennApiArticle {
-  articles: {
-    id: string;
-    title: string;
-    path: string;
-    published_at: string;
-  }[];
-}
-
 interface Article {
   title: string;
   url: string;
@@ -219,20 +210,92 @@ interface Article {
 }
 
 export const useArticles = routeLoader$(() => {
-  return fetch("https://zenn.dev/api/articles?username=mtaku3")
-    .then((res) => res.json() as Promise<ZennApiArticle>)
-    .then((res) =>
-      res.articles
-        .map<Article>((article) => {
-          return {
-            title: article.title,
-            url: `https://zenn.dev${article.path}`,
-            publishedAt: new Date(article.published_at),
-          };
-        })
-        .sort((a, b) => a.publishedAt.getTime() - b.publishedAt.getTime()),
-    );
+  return Promise.all([getZennArticles(), getNoteArticles()]).then(
+    ([zennArticles, noteArticles]) => {
+      return [...zennArticles, ...noteArticles].sort(
+        (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime(),
+      );
+    },
+  );
 });
+
+interface ZennApiArticle {
+  articles: {
+    id: string;
+    title: string;
+    path: string;
+    published_at: string;
+  }[];
+  next_page: number | null;
+}
+
+const getZennArticles = async () => {
+  let page = 1;
+  const articles: Article[] = [];
+
+  while (true) {
+    const res = await fetch(
+      `https://zenn.dev/api/articles?username=mtaku3&page=${page}`,
+    );
+    const data = (await res.json()) as ZennApiArticle;
+    for (const article of data.articles) {
+      articles.push({
+        title: article.title,
+        url: `https://zenn.dev${article.path}`,
+        publishedAt: new Date(article.published_at),
+      });
+    }
+
+    if (data.next_page != null) {
+      page = data.next_page;
+      await new Promise((res) => setTimeout(res, 1000));
+    } else {
+      break;
+    }
+  }
+
+  return articles;
+};
+
+interface NoteApiArticle {
+  data: {
+    contents: {
+      name: string;
+      publishAt: string;
+      noteUrl: string;
+    }[];
+    isLastPage: boolean;
+  };
+}
+
+const getNoteArticles = async () => {
+  let page = 1;
+  const articles: Article[] = [];
+
+  while (true) {
+    const res = await fetch(
+      `https://note.com/api/v2/creators/mtaku3/contents?kind=note&page=${page}`,
+    );
+    const data = (await res.json()) as NoteApiArticle;
+    console.log(data);
+    for (const article of data.data.contents) {
+      articles.push({
+        title: article.name,
+        url: article.noteUrl,
+        publishedAt: new Date(article.publishAt),
+      });
+    }
+
+    if (!data.data.isLastPage) {
+      page += 1;
+      await new Promise((res) => setTimeout(res, 1000));
+    } else {
+      break;
+    }
+  }
+
+  return articles;
+};
 
 export const head: DocumentHead = {
   title: "mtaku3 のポートフォリオ",
