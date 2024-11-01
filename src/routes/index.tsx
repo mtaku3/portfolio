@@ -1,7 +1,9 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { SiX, SiGithub } from "@qwikest/icons/simpleicons";
+import { LuChevronDown, LuHistory } from "@qwikest/icons/lucide";
 import jwt from "jsonwebtoken";
+import { Collapsible } from "@qwik-ui/headless";
 
 export default component$(() => {
   return (
@@ -188,19 +190,48 @@ const Articles = component$(() => {
 const Music = component$(() => {
   return (
     <div class="flex flex-col gap-2 items-center w-full">
-      <h3 class="text-lg font-bold">おすすめの曲</h3>
-      <p>最近聴いてるおすすめの曲を不定期で更新してます。</p>
-      <iframe
-        height="175"
-        width="100%"
-        title="Media player"
-        src="https://embed.music.apple.com/jp/album/rebirth/1609933481?i=1609933491&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1609933491&amp;theme=light"
-        id="embedPlayer"
-        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-        allow="autoplay *; encrypted-media *; clipboard-write"
-        style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 650px;"
-      ></iframe>
+      <h3 class="text-lg font-bold">お気に入りの曲</h3>
+      <p>最近聴いてるお気に入りの曲を不定期で更新してます</p>
+      <div>
+        <a
+          href="https://findmestore.thinkr.jp/collections/asu/products/5sr-000-0076"
+          target="_blank"
+          class="underline decoration-dotted font-semibold"
+        >
+          ソラゴト - Acoustic Arrange - / twilight by 明透
+        </a>
+      </div>
+      <PreviousMusic />
     </div>
+  );
+});
+
+const PreviousMusic = component$(() => {
+  return (
+    <Collapsible.Root class="w-full">
+      <Collapsible.Trigger class="group mx-auto flex items-center gap-2 py-2 text-gray-600">
+        <LuChevronDown class="group-data-[open=]:-rotate-180 transition" />
+        <span>過去のお気に入りの曲</span>
+      </Collapsible.Trigger>
+      <Collapsible.Content>
+        <div class="space-y-2">
+          <div class="flex gap-2 justify-center items-center text-gray-600">
+            <LuHistory />
+            <p class="font-light text-center">2024/10</p>
+          </div>
+          <iframe
+            height="175"
+            width="100%"
+            title="Media player"
+            src="https://embed.music.apple.com/jp/album/rebirth/1609933481?i=1609933491&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1609933491&amp;theme=light"
+            id="embedPlayer"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+            allow="autoplay *; encrypted-media *; clipboard-write"
+            style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 650px;"
+          ></iframe>
+        </div>
+      </Collapsible.Content>
+    </Collapsible.Root>
   );
 });
 
@@ -349,7 +380,6 @@ const getTrapArticles = async (apiKey: string) => {
     },
   });
   const data = (await res.json()) as TrapGhostApiArticle;
-  console.log(data);
   for (const article of data.posts) {
     articles.push({
       title: article.title,
