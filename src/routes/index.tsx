@@ -192,15 +192,16 @@ const Music = component$(() => {
     <div class="flex flex-col gap-2 items-center w-full">
       <h3 class="text-lg font-bold">お気に入りの曲</h3>
       <p>最近聴いてるお気に入りの曲を不定期で更新してます</p>
-      <div>
-        <a
-          href="https://findmestore.thinkr.jp/collections/asu/products/5sr-000-0076"
-          target="_blank"
-          class="underline decoration-dotted font-semibold"
-        >
-          ソラゴト - Acoustic Arrange - / twilight by 明透
-        </a>
-      </div>
+      <iframe
+        height="175"
+        width="100%"
+        title="Media player"
+        src="https://embed.music.apple.com/jp/album/%E3%82%8F%E3%82%92%E3%82%93/1781027500?i=1781027818&amp;l=en-US&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1781027818&amp;theme=auto"
+        id="embedPlayer"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        allow="autoplay *; encrypted-media *; clipboard-write"
+        style="border: 0px; border-radius: 12px; width: 100%; height: 175px; max-width: 658px;"
+      ></iframe>
       <PreviousMusic />
     </div>
   );
@@ -215,6 +216,20 @@ const PreviousMusic = component$(() => {
       </Collapsible.Trigger>
       <Collapsible.Content>
         <div class="space-y-2">
+          <div class="flex gap-2 justify-center items-center text-gray-600">
+            <LuHistory />
+            <p class="font-light text-center">2024/12</p>
+          </div>
+          <div class="flex justify-center">
+            <a
+              href="https://findmestore.thinkr.jp/collections/asu/products/5sr-000-0076"
+              target="_blank"
+              class="underline decoration-dotted font-semibold"
+            >
+              ソラゴト - Acoustic Arrange - / twilight by 明透
+            </a>
+          </div>
+
           <div class="flex gap-2 justify-center items-center text-gray-600">
             <LuHistory />
             <p class="font-light text-center">2024/10</p>
