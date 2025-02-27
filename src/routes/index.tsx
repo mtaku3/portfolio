@@ -89,28 +89,28 @@ const AboutMe = component$(() => {
       <h3 class="text-lg font-bold">歴史</h3>
       <div class="flex flex-col gap-2 w-full">
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
-          <span class="text-gray-800 leading-none">2019 - 2024</span>
+          <span class="text-gray-800 leading-none">2019年4月 ― 2024年3月</span>
           <span>鹿児島工業高等専門学校 情報工学科</span>
         </div>
         <div class="mx-auto">
           <Connector />
         </div>
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
-          <span class="text-gray-800 leading-none">2023/12 - 2024/9</span>
+          <span class="text-gray-800 leading-none">2023年12月 ― 2024年9月</span>
           <span>株式会社TRUSTART システム開発部 インターン</span>
         </div>
         <div class="mx-auto">
           <Connector />
         </div>
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
-          <span class="text-gray-800 leading-none">2024 - Present</span>
+          <span class="text-gray-800 leading-none">2024年4月 ― 現在</span>
           <span>東京科学大学 情報工学系</span>
         </div>
         <div class="mx-auto">
           <Connector />
         </div>
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
-          <span class="text-gray-800 leading-none">2025/2 - Present</span>
+          <span class="text-gray-800 leading-none">2025年2月 ― 現在</span>
           <span>GMOメディア株式会社 サービス開発部 インターン</span>
         </div>
       </div>
