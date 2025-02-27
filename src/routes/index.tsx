@@ -106,6 +106,13 @@ const AboutMe = component$(() => {
           <span class="text-gray-800 leading-none">2024 - Present</span>
           <span>東京科学大学 情報工学系</span>
         </div>
+        <div class="mx-auto">
+          <Connector />
+        </div>
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2025/2 - Present</span>
+          <span>GMOメディア株式会社 サービス開発部 インターン</span>
+        </div>
       </div>
     </div>
   );
