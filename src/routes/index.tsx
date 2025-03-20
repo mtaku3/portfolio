@@ -64,7 +64,7 @@ const Links = component$(() => {
   return (
     <div class="flex gap-4 md:flex-col flex-wrap">
       <a
-        href="https://x.com/oRqSXxv8GeDK"
+        href="https://x.com/mtaku3n"
         target="_blank"
         class="px-4 py-2 flex gap-4 rounded-md bg-black text-white items-center border-2 border-gray-400 hover:cursor-pointer hover:border-gray-300 w-full justify-center"
       >
