@@ -13,7 +13,7 @@ export default component$(() => {
         <Biography />
         <Links />
       </div>
-      <div class="w-11/12 max-w-[560px] flex flex-col items-center gap-4">
+      <div class="mx-4 max-w-[1400px] grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         <AboutMe />
         <Projects />
         <Articles />
