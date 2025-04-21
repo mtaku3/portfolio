@@ -14,7 +14,9 @@ export default component$(() => {
         <Links />
       </div>
       <div class="mx-4 max-w-[1400px] grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <AboutMe />
+        <Schools />
+        <WorksInterns />
+        <CertificatesAwards />
         <Projects />
         <Articles />
         <Music />
@@ -83,10 +85,10 @@ const Links = component$(() => {
   );
 });
 
-const AboutMe = component$(() => {
+const Schools = component$(() => {
   return (
     <div class="flex flex-col gap-2 items-center w-full">
-      <h3 class="text-lg font-bold">歴史</h3>
+      <h3 class="text-lg font-bold">学歴</h3>
       <div class="flex flex-col gap-2 w-full">
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
           <span class="text-gray-800 leading-none">2019年4月 ― 2024年3月</span>
@@ -96,6 +98,20 @@ const AboutMe = component$(() => {
           <Connector />
         </div>
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2024年4月 ― 現在</span>
+          <span>東京科学大学 情報工学系</span>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+const WorksInterns = component$(() => {
+  return (
+    <div class="flex flex-col gap-2 items-center w-full">
+      <h3 class="text-lg font-bold">職歴・インターン</h3>
+      <div class="flex flex-col gap-2 w-full">
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
           <span class="text-gray-800 leading-none">2023年12月 ― 2024年9月</span>
           <span>株式会社TRUSTART システム開発部 インターン</span>
         </div>
@@ -103,15 +119,48 @@ const AboutMe = component$(() => {
           <Connector />
         </div>
         <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
-          <span class="text-gray-800 leading-none">2024年4月 ― 現在</span>
-          <span>東京科学大学 情報工学系</span>
-        </div>
-        <div class="mx-auto">
-          <Connector />
-        </div>
-        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
           <span class="text-gray-800 leading-none">2025年2月 ― 現在</span>
           <span>GMOメディア株式会社 サービス開発部 インターン</span>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+const Papers = component$(() => {
+  return (
+    <div class="flex flex-col gap-2 items-center w-full">
+      <h3 class="text-lg font-bold">論文</h3>
+      <div class="flex flex-col gap-2 w-full"></div>
+    </div>
+  );
+});
+
+const CertificatesAwards = component$(() => {
+  return (
+    <div class="flex flex-col gap-2 items-center w-full">
+      <h3 class="text-lg font-bold">資格・受賞歴</h3>
+      <div class="flex flex-col gap-2 w-full">
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2025年3月</span>
+          <span>
+            UTokyo Deep Learning 応用講座 世界モデル2024 口頭発表 最優秀賞
+          </span>
+          <p class="font-light">
+            JDERW：世界モデルを要する推論問題に関する日本語LLMベンチマーク
+          </p>
+        </div>
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2025年1月</span>
+          <span>UTokyo 集中講義 2024 大規模言語モデル 修了</span>
+        </div>
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2024年9月</span>
+          <span>TOEIC L&R 935点</span>
+        </div>
+        <div class="rounded-md border-2 border-gray-400 px-4 py-2 flex flex-col">
+          <span class="text-gray-800 leading-none">2020年11月</span>
+          <span>実用英語技能検定 準1級 合格</span>
         </div>
       </div>
     </div>
